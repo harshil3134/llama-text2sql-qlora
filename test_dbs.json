@@ -1,0 +1,132 @@
+[
+  {
+    "db_name": "E-Commerce Logistics",
+    "schema": "CREATE TABLE customers (customer_id INT PRIMARY KEY, name VARCHAR, country VARCHAR);\nCREATE TABLE suppliers (supplier_id INT PRIMARY KEY, name VARCHAR, region VARCHAR);\nCREATE TABLE products (product_id INT PRIMARY KEY, name VARCHAR, supplier_id INT, price DECIMAL);\nCREATE TABLE orders (order_id INT PRIMARY KEY, customer_id INT, order_date DATE);\nCREATE TABLE order_items (item_id INT PRIMARY KEY, order_id INT, product_id INT, quantity INT);\nCREATE TABLE shipments (shipment_id INT, order_id INT, status VARCHAR, delivery_date DATE);\nINSERT INTO customers VALUES (1, 'Alice', 'USA'), (2, 'Bob', 'UK');\nINSERT INTO suppliers VALUES (1, 'TechSource', 'Asia'), (2, 'WoodInc', 'Europe');\nINSERT INTO products VALUES (1, 'Laptop', 1, 1000), (2, 'Desk', 2, 500);\nINSERT INTO orders VALUES (1, 1, '2023-01-01'), (2, 2, '2023-01-05');\nINSERT INTO order_items VALUES (1, 1, 1, 2), (2, 2, 2, 1);\nINSERT INTO shipments VALUES (1, 1, 'Delivered', '2023-01-10'), (2, 2, 'In Transit', NULL);",
+    "questions": [
+      {
+        "question": "What is the total revenue generated from customers in the USA?",
+        "expected_sql": "SELECT SUM(p.price * oi.quantity) FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN order_items oi ON o.order_id = oi.order_id JOIN products p ON oi.product_id = p.product_id WHERE c.country = 'USA';"
+      },
+      {
+        "question": "List the names of suppliers whose products are currently 'In Transit'.",
+        "expected_sql": "SELECT DISTINCT s.name FROM suppliers s JOIN products p ON s.supplier_id = p.supplier_id JOIN order_items oi ON p.product_id = oi.product_id JOIN shipments sh ON oi.order_id = sh.order_id WHERE sh.status = 'In Transit';"
+      },
+      {
+        "question": "Which customer has the highest total order value?",
+        "expected_sql": "SELECT c.name FROM customers c JOIN orders o ON c.customer_id = o.customer_id JOIN order_items oi ON o.order_id = oi.order_id JOIN products p ON oi.product_id = p.product_id GROUP BY c.customer_id ORDER BY SUM(p.price * oi.quantity) DESC LIMIT 1;"
+      },
+      {
+        "question": "How many items from Asian suppliers were delivered successfully?",
+        "expected_sql": "SELECT SUM(oi.quantity) FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN suppliers s ON p.supplier_id = s.supplier_id JOIN shipments sh ON oi.order_id = sh.order_id WHERE s.region = 'Asia' AND sh.status = 'Delivered';"
+      },
+      {
+        "question": "List the names of products that have never been ordered.",
+        "expected_sql": "SELECT name FROM products WHERE product_id NOT IN (SELECT product_id FROM order_items);"
+      }
+    ]
+  },
+  {
+    "db_name": "Hospital Management",
+    "schema": "CREATE TABLE departments (dept_id INT PRIMARY KEY, name VARCHAR);\nCREATE TABLE doctors (doctor_id INT PRIMARY KEY, name VARCHAR, dept_id INT);\nCREATE TABLE patients (patient_id INT PRIMARY KEY, name VARCHAR, age INT);\nCREATE TABLE appointments (appt_id INT PRIMARY KEY, patient_id INT, doctor_id INT, appt_date DATE);\nCREATE TABLE treatments (treatment_id INT PRIMARY KEY, appt_id INT, description VARCHAR, cost DECIMAL);\nINSERT INTO departments VALUES (1, 'Cardiology'), (2, 'Neurology');\nINSERT INTO doctors VALUES (1, 'Dr. Smith', 1), (2, 'Dr. Jones', 2);\nINSERT INTO patients VALUES (1, 'Mary', 45), (2, 'James', 60);\nINSERT INTO appointments VALUES (1, 1, 1, '2023-02-01'), (2, 2, 2, '2023-02-02');\nINSERT INTO treatments VALUES (1, 1, 'ECG', 200), (2, 2, 'MRI', 1000);",
+    "questions": [
+      {
+        "question": "What is the total cost of treatments for patients over 50 years old?",
+        "expected_sql": "SELECT SUM(t.cost) FROM patients p JOIN appointments a ON p.patient_id = a.patient_id JOIN treatments t ON a.appt_id = t.appt_id WHERE p.age > 50;"
+      },
+      {
+        "question": "Which department has generated the most treatment revenue?",
+        "expected_sql": "SELECT d.name FROM departments d JOIN doctors doc ON d.dept_id = doc.dept_id JOIN appointments a ON doc.doctor_id = a.doctor_id JOIN treatments t ON a.appt_id = t.appt_id GROUP BY d.dept_id ORDER BY SUM(t.cost) DESC LIMIT 1;"
+      },
+      {
+        "question": "List patients who have seen doctors in the Neurology department.",
+        "expected_sql": "SELECT DISTINCT p.name FROM patients p JOIN appointments a ON p.patient_id = a.patient_id JOIN doctors d ON a.doctor_id = d.doctor_id JOIN departments dept ON d.dept_id = dept.dept_id WHERE dept.name = 'Neurology';"
+      },
+      {
+        "question": "Find the average treatment cost per doctor.",
+        "expected_sql": "SELECT d.name, AVG(t.cost) FROM doctors d JOIN appointments a ON d.doctor_id = a.doctor_id JOIN treatments t ON a.appt_id = t.appt_id GROUP BY d.doctor_id;"
+      },
+      {
+        "question": "Count the number of appointments that didn't result in any treatments.",
+        "expected_sql": "SELECT COUNT(*) FROM appointments a LEFT JOIN treatments t ON a.appt_id = t.appt_id WHERE t.treatment_id IS NULL;"
+      }
+    ]
+  },
+  {
+    "db_name": "University Enrollment",
+    "schema": "CREATE TABLE departments (dept_id INT PRIMARY KEY, name VARCHAR);\nCREATE TABLE professors (prof_id INT PRIMARY KEY, name VARCHAR, dept_id INT);\nCREATE TABLE courses (course_id INT PRIMARY KEY, title VARCHAR, prof_id INT, credits INT);\nCREATE TABLE students (student_id INT PRIMARY KEY, name VARCHAR, major_dept_id INT);\nCREATE TABLE enrollments (enrollment_id INT PRIMARY KEY, student_id INT, course_id INT, grade VARCHAR);\nINSERT INTO departments VALUES (1, 'Computer Science'), (2, 'Mathematics');\nINSERT INTO professors VALUES (1, 'Prof. Alan', 1), (2, 'Prof. Euler', 2);\nINSERT INTO courses VALUES (1, 'Intro to CS', 1, 4), (2, 'Calculus I', 2, 3);\nINSERT INTO students VALUES (1, 'Tom', 1), (2, 'Jerry', 2);\nINSERT INTO enrollments VALUES (1, 1, 1, 'A'), (2, 2, 2, 'B'), (3, 1, 2, 'A');",
+    "questions": [
+      {
+        "question": "What is the average number of credits taken by students majoring in Computer Science?",
+        "expected_sql": "SELECT AVG(c.credits) FROM students s JOIN enrollments e ON s.student_id = e.student_id JOIN courses c ON e.course_id = c.course_id JOIN departments d ON s.major_dept_id = d.dept_id WHERE d.name = 'Computer Science';"
+      },
+      {
+        "question": "Which professor has given the most 'A' grades?",
+        "expected_sql": "SELECT p.name FROM professors p JOIN courses c ON p.prof_id = c.prof_id JOIN enrollments e ON c.course_id = e.course_id WHERE e.grade = 'A' GROUP BY p.prof_id ORDER BY COUNT(*) DESC LIMIT 1;"
+      },
+      {
+        "question": "List all students who are taking courses outside their major department.",
+        "expected_sql": "SELECT DISTINCT s.name FROM students s JOIN enrollments e ON s.student_id = e.student_id JOIN courses c ON e.course_id = c.course_id JOIN professors p ON c.prof_id = p.prof_id WHERE s.major_dept_id != p.dept_id;"
+      },
+      {
+        "question": "Find the total number of distinct courses offered by the Mathematics department.",
+        "expected_sql": "SELECT COUNT(DISTINCT c.course_id) FROM courses c JOIN professors p ON c.prof_id = p.prof_id JOIN departments d ON p.dept_id = d.dept_id WHERE d.name = 'Mathematics';"
+      },
+      {
+        "question": "Show the names of students who have not enrolled in any courses.",
+        "expected_sql": "SELECT name FROM students WHERE student_id NOT IN (SELECT student_id FROM enrollments);"
+      }
+    ]
+  },
+  {
+    "db_name": "Airline Flights",
+    "schema": "CREATE TABLE airlines (airline_id INT PRIMARY KEY, name VARCHAR);\nCREATE TABLE airports (airport_code VARCHAR PRIMARY KEY, city VARCHAR, country VARCHAR);\nCREATE TABLE flights (flight_id INT PRIMARY KEY, airline_id INT, src_airport VARCHAR, dest_airport VARCHAR, duration_mins INT);\nCREATE TABLE passengers (passenger_id INT PRIMARY KEY, name VARCHAR, passport VARCHAR);\nCREATE TABLE tickets (ticket_id INT PRIMARY KEY, passenger_id INT, flight_id INT, price DECIMAL);\nINSERT INTO airlines VALUES (1, 'Delta'), (2, 'Emirates');\nINSERT INTO airports VALUES ('JFK', 'New York', 'USA'), ('DXB', 'Dubai', 'UAE'), ('LHR', 'London', 'UK');\nINSERT INTO flights VALUES (1, 1, 'JFK', 'LHR', 420), (2, 2, 'LHR', 'DXB', 360);\nINSERT INTO passengers VALUES (1, 'John', 'US123'), (2, 'Sara', 'UK456');\nINSERT INTO tickets VALUES (1, 1, 1, 500), (2, 2, 2, 800);",
+    "questions": [
+      {
+        "question": "What is the total revenue generated by Delta airlines?",
+        "expected_sql": "SELECT SUM(t.price) FROM airlines a JOIN flights f ON a.airline_id = f.airline_id JOIN tickets t ON f.flight_id = t.flight_id WHERE a.name = 'Delta';"
+      },
+      {
+        "question": "List the names of passengers flying to Dubai.",
+        "expected_sql": "SELECT p.name FROM passengers p JOIN tickets t ON p.passenger_id = t.passenger_id JOIN flights f ON t.flight_id = f.flight_id JOIN airports a ON f.dest_airport = a.airport_code WHERE a.city = 'Dubai';"
+      },
+      {
+        "question": "Which airport serves as the source for the longest flight by duration?",
+        "expected_sql": "SELECT a.airport_code FROM airports a JOIN flights f ON a.airport_code = f.src_airport ORDER BY f.duration_mins DESC LIMIT 1;"
+      },
+      {
+        "question": "Find the average ticket price for flights departing from the USA.",
+        "expected_sql": "SELECT AVG(t.price) FROM tickets t JOIN flights f ON t.flight_id = f.flight_id JOIN airports a ON f.src_airport = a.airport_code WHERE a.country = 'USA';"
+      },
+      {
+        "question": "Count how many tickets were sold for each airline.",
+        "expected_sql": "SELECT a.name, COUNT(t.ticket_id) FROM airlines a JOIN flights f ON a.airline_id = f.airline_id JOIN tickets t ON f.flight_id = t.flight_id GROUP BY a.airline_id;"
+      }
+    ]
+  },
+  {
+    "db_name": "Retail Banking",
+    "schema": "CREATE TABLE branches (branch_id INT PRIMARY KEY, city VARCHAR);\nCREATE TABLE accounts (account_id INT PRIMARY KEY, branch_id INT, balance DECIMAL);\nCREATE TABLE customers (customer_id INT PRIMARY KEY, name VARCHAR, account_id INT);\nCREATE TABLE loans (loan_id INT PRIMARY KEY, customer_id INT, amount DECIMAL, interest_rate DECIMAL);\nCREATE TABLE transactions (tx_id INT PRIMARY KEY, account_id INT, tx_type VARCHAR, amount DECIMAL);\nINSERT INTO branches VALUES (1, 'New York'), (2, 'Boston');\nINSERT INTO accounts VALUES (1, 1, 5000), (2, 2, 10000);\nINSERT INTO customers VALUES (1, 'Alice', 1), (2, 'Bob', 2);\nINSERT INTO loans VALUES (1, 1, 20000, 5.5), (2, 2, 50000, 4.0);\nINSERT INTO transactions VALUES (1, 1, 'Deposit', 1000), (2, 2, 'Withdrawal', 500);",
+    "questions": [
+      {
+        "question": "What is the total balance of all accounts in the Boston branch?",
+        "expected_sql": "SELECT SUM(a.balance) FROM accounts a JOIN branches b ON a.branch_id = b.branch_id WHERE b.city = 'Boston';"
+      },
+      {
+        "question": "Which customer has the highest loan amount?",
+        "expected_sql": "SELECT c.name FROM customers c JOIN loans l ON c.customer_id = l.customer_id ORDER BY l.amount DESC LIMIT 1;"
+      },
+      {
+        "question": "List all customers who have made a Withdrawal transaction.",
+        "expected_sql": "SELECT DISTINCT c.name FROM customers c JOIN accounts a ON c.account_id = a.account_id JOIN transactions t ON a.account_id = t.account_id WHERE t.tx_type = 'Withdrawal';"
+      },
+      {
+        "question": "Find the average interest rate of loans for customers at the New York branch.",
+        "expected_sql": "SELECT AVG(l.interest_rate) FROM loans l JOIN customers c ON l.customer_id = c.customer_id JOIN accounts a ON c.account_id = a.account_id JOIN branches b ON a.branch_id = b.branch_id WHERE b.city = 'New York';"
+      },
+      {
+        "question": "Count the number of deposits made by each customer.",
+        "expected_sql": "SELECT c.name, COUNT(t.tx_id) FROM customers c JOIN accounts a ON c.account_id = a.account_id JOIN transactions t ON a.account_id = t.account_id WHERE t.tx_type = 'Deposit' GROUP BY c.customer_id;"
+      }
+    ]
+  }
+]

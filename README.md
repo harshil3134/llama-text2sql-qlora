@@ -58,3 +58,43 @@ python -m mlx_lm.lora \
 | `--learning-rate 1e-5` | Optimizer step size calibrated to adapt formatting without catastrophic forgetting. |
 | `--save-every 250` | Saves an adapter checkpoint every 250 steps to prevent progress loss. |
 | `--adapter-path` | Destination directory where the final `adapters.safetensors` file is exported. |
+
+## 3. Interactive Web App (Streamlit)
+
+You can test your fine-tuned model interactively using the Streamlit web application. This app allows you to define a custom database schema, ask natural language questions, and instantly execute the generated SQL against an in-memory SQLite database to view the real results.
+
+Run the application:
+
+```bash
+streamlit run app.py
+```
+
+*Note: If you encounter Out-Of-Memory (OOM) errors, the script automatically manages garbage collection to free up VRAM between interactions. Ensure you do not use `@st.cache_resource` unless you downgrade to `mlx < 0.31.2`, due to MLX thread-local stream constraints.*
+
+## 4. Benchmark & Evaluation
+To rigorously benchmark the accuracy of your model, this project includes two automated evaluation pipelines:
+
+1. **`test_model.py` (Validation Split Test):** Tests the model on the remaining 150 samples from the original dataset. It generates a social-media-ready chart (`benchmark_results.png`) comparing the base model (using a highly optimized JSON prompt) vs. your fine-tuned model (using the standard prompt).
+2. **`evaluation_suite.py` (Aggressive Custom DBs):** Tests the models on 5 highly complex, custom-built databases (E-Commerce, Hospital, University, Airlines, Banking) using raw execution data matching to test complex multi-table joins.
+
+### Latest Benchmark Results (Zero-Shot)
+On the local validation split (150 samples) running on Apple Silicon via MLX:
+- **Base Model (Llama-3.1-8B-Instruct):** 82.0% Execution Accuracy (even with JSON structured prompting advantage)
+- **Fine-Tuned Adapter (QLoRA):** **95.3% Execution Accuracy** (massive reduction in syntax hallucinations)
+
+Run the evaluation suite:
+
+```bash
+python evaluation_suite.py
+```
+
+You can add additional schemas and questions to `test_dbs.json` to continually expand your benchmark.
+
+### Note on Zero-Shot Accuracy
+
+If you notice lower accuracy on highly complex, aggressive multi-table queries (e.g., scoring 40-60%), remember that this system is currently evaluating the model in a pure **Zero-Shot** environment. It expects the model to perfectly generate complex SQL on the very first try without any intermediate planning. 
+
+To improve accuracy on difficult queries, you can expand this repository into a multi-step Agentic workflow by implementing:
+1. **Schema Pruning (RAG)**: Filtering down the schema to only relevant tables before prompting the model.
+2. **Chain of Thought (CoT)**: Forcing the model to write a logical step-by-step plan before outputting the final SQL.
+3. **Execution-Correction Loop**: Catching SQL execution errors in a sandbox and feeding the error message back to the LLM so it can self-correct its query.

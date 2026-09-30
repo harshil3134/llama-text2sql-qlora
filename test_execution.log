@@ -1,0 +1,1861 @@
+TEST EXECUTION LOG
+==================================================
+
+==================================================
+🚀 RUNNING: Base Model (JSON Mode: True)
+==================================================
+
+--- Question 1 ---
+Question: What is the high lap total for pedro diniz?
+Expected SQL: SELECT MAX(laps) FROM table_name_24 WHERE driver = "pedro diniz"
+Model Gen SQL: SELECT MAX(laps) FROM table_name_24 WHERE driver = 'pedro diniz';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 2 ---
+Question: What is listed for the Tries against that has a Played of 22, along with a Club of Ystalyfera RFC?
+Expected SQL: SELECT tries_against FROM table_name_95 WHERE played = "22" AND club = "ystalyfera rfc"
+Model Gen SQL: SELECT tries_against FROM table_name_95 WHERE played = '22' AND club = 'Ystalyfera RFC';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 3 ---
+Question: What Career has a Parallel of –, a Combined of –, and a Giant Slalom of 5?
+Expected SQL: SELECT career FROM table_name_6 WHERE parallel = "–" AND combined = "–" AND giant_slalom = "5"
+Model Gen SQL: SELECT career FROM table_name_6 WHERE parallel = '-' AND combined = '-' AND giant_slalom = '5';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 4 ---
+Question: What year is the venue in budapest, hungary?
+Expected SQL: SELECT SUM(year) FROM table_name_17 WHERE venue = "budapest, hungary"
+Model Gen SQL: SELECT year FROM table_name_17 WHERE venue = 'budapest, hungary';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 5 ---
+Question: Name the least purse for 2011
+Expected SQL: SELECT MIN(purse___us) AS $__ FROM table_15618241_1 WHERE year = 2011
+Model Gen SQL: SELECT MIN purse___us FROM table_15618241_1 WHERE year = '2011';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MIN
+
+--- Question 6 ---
+Question: What is the local/network with an Ad frequency of 15 minutes?
+Expected SQL: SELECT local_networked FROM table_name_1 WHERE ad_freq = "15 minutes"
+Model Gen SQL: SELECT local_networked FROM table_name_1 WHERE ad_freq = '15 minutes';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 7 ---
+Question: What was the score when Calgary was visiting team and Niittymaki had the decision?
+Expected SQL: SELECT score FROM table_name_78 WHERE decision = "niittymaki" AND visitor = "calgary"
+Model Gen SQL: SELECT score FROM table_name_78 WHERE visitor = 'Calgary' AND decision = 'Niittymaki';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 8 ---
+Question: How many current drivers, as of March 20, 2010 does Denmark have?
+Expected SQL: SELECT current_march_20, _2010 FROM table_19487922_2 WHERE country = "Denmark"
+Model Gen SQL: SELECT COUNT(current_march_20) FROM table_19487922_2 WHERE country = 'Denmark';
+Status: ❌ MISMATCH
+  Expected Data: []
+  Got Data: [(0,)]
+
+--- Question 9 ---
+Question: What method had a record 12-2-3?
+Expected SQL: SELECT method FROM table_name_87 WHERE record = "12-2-3"
+Model Gen SQL: SELECT method FROM table_name_87 WHERE record = '12-2-3';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 10 ---
+Question: Name Nationality / Opponent on 10 january 1998?
+Expected SQL: SELECT nationality___opponent FROM table_name_25 WHERE date = "10 january 1998"
+Model Gen SQL: SELECT nationality___opponent FROM table_name_25 WHERE date = '10 January 1998';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 11 ---
+Question: how many times is there more than 0 draws and more than 0 losses?
+Expected SQL: SELECT COUNT(played) FROM table_name_5 WHERE drawn > 0 AND lost > 0
+Model Gen SQL: SELECT COUNT(*) FROM table_name_5 WHERE drawn > '0' AND lost > '0';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 12 ---
+Question: Who started in 2008 with 0 points?
+Expected SQL: SELECT team_name FROM table_17289224_1 WHERE season = "2008" AND points = 0
+Model Gen SQL: SELECT team_name FROM table_17289224_1 WHERE season = '2008' AND points = '0';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 13 ---
+Question: How many vap values are associated with 140469 valid votes?
+Expected SQL: SELECT COUNT(vap) FROM table_2683116_1 WHERE valid_votes = 140469
+Model Gen SQL: SELECT COUNT(vap) FROM table_2683116_1 WHERE valid_votes = '140469';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 14 ---
+Question: Find the id and name of the most expensive base price room.
+Expected SQL: SELECT RoomId, roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1
+Model Gen SQL: SELECT RoomId, roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 15 ---
+Question: Silver larger than 0, and a Total smaller than 3, and a Nation of bulgaria, and a Bronze smaller than 0 had what sum of gold?
+Expected SQL: SELECT SUM(gold) FROM table_name_51 WHERE silver > 0 AND total < 3 AND nation = "bulgaria" AND bronze < 0
+Model Gen SQL: SELECT SUM gold FROM table_name_51 WHERE silver > 0 AND total < 3 AND nation = 'bulgaria' AND bronze < 0;
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: SUM
+
+--- Question 16 ---
+Question: What is the Population 1961 of West Sussex with a Population of 120,952 or less?
+Expected SQL: SELECT SUM(population_1961) FROM table_name_22 WHERE administrative_county = "west sussex" AND population_1891 < 120 OFFSET 952
+Model Gen SQL: SELECT population_1961 FROM table_name_22 WHERE administrative_county = 'West Sussex' AND population_1891 = '120,952' OR population_1891 = '120,952 or less';
+Status: ❌ MISMATCH
+  Expected Data: near "OFFSET": syntax error
+  Got Data: []
+
+--- Question 17 ---
+Question: Who did the most high assists during the game played on February 6?
+Expected SQL: SELECT high_assists FROM table_23248940_9 WHERE date = "February 6"
+Model Gen SQL: SELECT high_assists FROM table_23248940_9 WHERE date = 'February 6';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 18 ---
+Question: What color is model # pd-kb400w?
+Expected SQL: SELECT color FROM table_name_14 WHERE model__number = "pd-kb400w"
+Model Gen SQL: SELECT color FROM table_name_14 WHERE model__number = 'pd-kb400w';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 19 ---
+Question: Who was the home team when the VFL played Arden Street Oval?
+Expected SQL: SELECT home_team FROM table_name_6 WHERE venue = "arden street oval"
+Model Gen SQL: SELECT home_team FROM table_name_6 WHERE venue = 'Arden Street Oval';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 20 ---
+Question: What was the margin of victory when Mark Calcavecchia was the runner-up?
+Expected SQL: SELECT margin_of_victory FROM table_name_53 WHERE runner_s__up = "mark calcavecchia"
+Model Gen SQL: SELECT margin_of_victory FROM table_name_53 WHERE runner_s__up = 'Mark Calcavecchia';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 21 ---
+Question: What is the total number of postseason games that team Boston Red Stockings participated in?
+Expected SQL: SELECT COUNT(*) FROM (SELECT * FROM postseason AS T1 JOIN team AS T2 ON T1.team_id_winner = T2.team_id_br WHERE T2.name = 'Boston Red Stockings' UNION SELECT * FROM postseason AS T1 JOIN team AS T2 ON T1.team_id_loser = T2.team_id_br WHERE T2.name = 'Boston Red Stockings')
+Model Gen SQL: SELECT COUNT(*) FROM postseason WHERE team_id_winner IN (SELECT team_id_br FROM team WHERE name = 'Boston Red Stockings') OR team_id_loser IN (SELECT team_id_br FROM team WHERE name = 'Boston Red Stockings');
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 22 ---
+Question: What is the lowest wins the club with a position of 4 and less than 4 losses has?
+Expected SQL: SELECT MIN(wins) FROM table_name_67 WHERE position = 4 AND loses < 4
+Model Gen SQL: SELECT MIN(wins) FROM table_name_67 WHERE position = '4' AND loses < '4';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 23 ---
+Question: Which Location has a Method of submission (rear naked choke), a Round of 1, and an Event of ufc 127?
+Expected SQL: SELECT location FROM table_name_57 WHERE method = "submission (rear naked choke)" AND round = 1 AND event = "ufc 127"
+Model Gen SQL: SELECT location FROM table_name_57 WHERE method = 'submission (rear naked choke)' AND round = '1' AND event = 'ufc 127';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 24 ---
+Question: What is the Irish name listed with 62% Irish speakers?
+Expected SQL: SELECT irish_name FROM table_101196_1 WHERE irish_speakers = "62%"
+Model Gen SQL: SELECT irish_name FROM table_101196_1 WHERE irish_speakers = '62%';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 25 ---
+Question: Name the least births for conversion being 26,333
+Expected SQL: SELECT MIN(births) FROM table_28137918_5 WHERE conversions = "26,333"
+Model Gen SQL: SELECT MIN births FROM table_28137918_5 WHERE conversions = '26,333';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MIN
+
+--- Question 26 ---
+Question: Find the id of songs that are available in mp4 format and have resolution lower than 1000.
+Expected SQL: SELECT f_id FROM files WHERE formats = "mp4" INTERSECT SELECT f_id FROM song WHERE resolution < 1000
+Model Gen SQL: SELECT f_id FROM song WHERE formats = 'mp4' AND resolution < 1000;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 27 ---
+Question: Name the commissioned-decommissioned for NVR page of aor-7
+Expected SQL: SELECT commissioned__decommissioned FROM table_name_17 WHERE nvr_page = "aor-7"
+Model Gen SQL: SELECT commissioned__decommissioned FROM table_name_17 WHERE nvr_page = 'aor-7';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 28 ---
+Question: What's Salem State University's primary conference?
+Expected SQL: SELECT primary_conference FROM table_1974545_2 WHERE institution = "Salem State University"
+Model Gen SQL: SELECT primary_conference FROM table_1974545_2 WHERE institution = 'Salem State University';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 29 ---
+Question: what is the race when the jockey is frankie dettori, the margin is more than 3 and the course is yarmouth?
+Expected SQL: SELECT race FROM table_name_48 WHERE jockey = "frankie dettori" AND margin > 3 AND course = "yarmouth"
+Model Gen SQL: SELECT race FROM table_name_48 WHERE jockey = 'frankie dettori' AND margin > 3 AND course = 'yarmouth';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 30 ---
+Question: Show the name and phone for customers with a mailshot with outcome code 'No Response'.
+Expected SQL: SELECT T1.customer_name, T1.customer_phone FROM customers AS T1 JOIN mailshot_customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.outcome_code = 'No Response'
+Model Gen SQL: SELECT T1.customer_name, T1.customer_phone FROM customers AS T1 INNER JOIN mailshot_customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.outcome_code = 'No Response';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 31 ---
+Question: When Star Zemba was featured in Week 3, who was the cyber girl for Week 2?
+Expected SQL: SELECT week_2 FROM table_name_11 WHERE week_3 = "star zemba"
+Model Gen SQL: SELECT week_2 FROM table_name_11 WHERE week_3 = 'Star Zemba';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 32 ---
+Question: What Torque has an AMC Power Tech I6 Engine?
+Expected SQL: SELECT torque FROM table_name_68 WHERE engine = "amc power tech i6"
+Model Gen SQL: SELECT torque FROM table_name_68 WHERE engine = 'AMC Power Tech I6';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 33 ---
+Question: What was the largest crowd size at arden street oval?
+Expected SQL: SELECT MAX(crowd) FROM table_name_58 WHERE venue = "arden street oval"
+Model Gen SQL: SELECT MAX crowd FROM table_name_58 WHERE venue = 'arden street oval';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MAX
+
+--- Question 34 ---
+Question: Who is the outgoing manager when they were replaced by pablo centrone?
+Expected SQL: SELECT outgoing_manager FROM table_name_16 WHERE replaced_by = "pablo centrone"
+Model Gen SQL: SELECT outgoing_manager FROM table_name_16 WHERE replaced_by = 'pablo centrone';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 35 ---
+Question: What was the maximum OTL if L is 28?
+Expected SQL: SELECT MAX(Otl) FROM table_2233872_1 WHERE l = 28
+Model Gen SQL: SELECT MAX Otl FROM table_2233872_1 WHERE l = '28';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MAX
+
+--- Question 36 ---
+Question: What are the forename and surname of the driver who has the smallest laptime?
+Expected SQL: SELECT T1.forename, T1.surname FROM drivers AS T1 JOIN laptimes AS T2 ON T1.driverid = T2.driverid ORDER BY T2.milliseconds LIMIT 1
+Model Gen SQL: SELECT d.forename, d.surname FROM drivers d JOIN laptimes l ON d.driverid = l.driverid ORDER BY l.milliseconds ASC LIMIT 1;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 37 ---
+Question: When western michigan is the tournament winner how many conferences are there?
+Expected SQL: SELECT COUNT(conference) FROM table_24160890_3 WHERE tournament_winner = "Western Michigan"
+Model Gen SQL: SELECT COUNT conference FROM table_24160890_3 WHERE tournament_winner = 'western michigan';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: COUNT
+
+--- Question 38 ---
+Question: How many languages are in these films?
+Expected SQL: SELECT COUNT(DISTINCT language_id) FROM film
+Model Gen SQL: SELECT COUNT(DISTINCT language_id) FROM film;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 39 ---
+Question: Who was the team played on January 23?
+Expected SQL: SELECT team FROM table_17311759_6 WHERE date = "January 23"
+Model Gen SQL: SELECT team FROM table_17311759_6 WHERE date = 'January 23';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 40 ---
+Question: What is the score of the Devil Rays on April 24?
+Expected SQL: SELECT score FROM table_name_28 WHERE opponent = "devil rays" AND date = "april 24"
+Model Gen SQL: SELECT score FROM table_name_28 WHERE opponent = 'Devil Rays' AND date = 'April 24';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 41 ---
+Question: What conference was the churchill chargers team in?
+Expected SQL: SELECT conference FROM table_11094950_1 WHERE team = "Churchill Chargers"
+Model Gen SQL: SELECT conference FROM table_11094950_1 WHERE team = 'churchill chargers';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 42 ---
+Question: Where was the film about the garden of the finzi-continis made?
+Expected SQL: SELECT country FROM table_name_30 WHERE film_title_used_in_nomination = "the garden of the finzi-continis"
+Model Gen SQL: SELECT country FROM table_name_30 WHERE film_title_used_in_nomination = 'The Garden of the Finzi-Continis';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 43 ---
+Question: Which Opponent has a Record of 43-56?
+Expected SQL: SELECT opponent FROM table_name_75 WHERE record = "43-56"
+Model Gen SQL: SELECT opponent FROM table_name_75 WHERE record = '43-56';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 44 ---
+Question: What are the evening gown scores of contestants whose average is 9.266?
+Expected SQL: SELECT evening_gown FROM table_16390001_2 WHERE average = "9.266"
+Model Gen SQL: SELECT evening_gown FROM table_16390001_2 WHERE average = '9.266';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 45 ---
+Question: WHAT YEAR HAD 5 TOTAL MATCHES?
+Expected SQL: SELECT year FROM table_name_28 WHERE total_matches = 5
+Model Gen SQL: SELECT year FROM table_name_28 WHERE total_matches = '5';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 46 ---
+Question: How many Times have a Reaction Time larger than 0.17500000000000002, and a Lane of 3?
+Expected SQL: SELECT COUNT(time) FROM table_name_62 WHERE reaction_time > 0.17500000000000002 AND lane = 3
+Model Gen SQL: SELECT COUNT time FROM table_name_62 WHERE reaction_time > 0.17500000000000002 AND lane = '3';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: COUNT
+
+--- Question 47 ---
+Question: What is the Places amount of the United States Ranking 8?
+Expected SQL: SELECT AVG(places) FROM table_name_71 WHERE nation = "united states" AND rank = 8
+Model Gen SQL: SELECT places FROM table_name_71 WHERE rank = '8' AND nation = 'United States';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 48 ---
+Question: What is the Location of the Event with a Time of 2:22.32?
+Expected SQL: SELECT location FROM table_name_93 WHERE time = "2:22.32"
+Model Gen SQL: SELECT location FROM table_name_93 WHERE time = '2:22.32';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 49 ---
+Question: Name the number of ratings for bruce forsyth
+Expected SQL: SELECT COUNT(ratings) FROM table_29135051_2 WHERE guest_s_ = "Bruce Forsyth"
+Model Gen SQL: SELECT COUNT(ratings) FROM table_29135051_2 WHERE guest_s_ = 'bruce forsyth';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 50 ---
+Question: What is the goal Difference at Position 5?
+Expected SQL: SELECT difference FROM table_name_53 WHERE position = 5
+Model Gen SQL: SELECT difference FROM table_name_53 WHERE position = '5';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 51 ---
+Question: What is the maximum number of assists for players named Anastasia Kostaki?
+Expected SQL: SELECT MAX(assists) FROM table_24913533_4 WHERE player = "Anastasia Kostaki"
+Model Gen SQL: SELECT MAX(assists) FROM table_24913533_4 WHERE player = 'Anastasia Kostaki';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 52 ---
+Question: What district has Ron Paul?
+Expected SQL: SELECT district FROM table_1341395_44 WHERE incumbent = "Ron Paul"
+Model Gen SQL: SELECT district FROM table_1341395_44 WHERE incumbent = 'Ron Paul';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 53 ---
+Question: What is Outcome, when Score is 1-6, 3-6?
+Expected SQL: SELECT outcome FROM table_name_5 WHERE score = "1-6, 3-6"
+Model Gen SQL: SELECT outcome FROM table_name_5 WHERE score IN ('1-6', '3-6');
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 54 ---
+Question: Name the record for june 7
+Expected SQL: SELECT record FROM table_17104539_9 WHERE date = "June 7"
+Model Gen SQL: SELECT record FROM table_17104539_9 WHERE date = 'June 7';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 55 ---
+Question: What is the score of the game played on February 18?
+Expected SQL: SELECT score FROM table_name_59 WHERE date = "february 18"
+Model Gen SQL: SELECT score FROM table_name_59 WHERE date = 'February 18';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 56 ---
+Question: What is the maximum specific impulse with a 4423 m/s effective exhaust velocity?
+Expected SQL: SELECT MAX(specific_impulse__s_) FROM table_15944_5 WHERE effective_exhaust_velocity__m_s_ = 4423
+Model Gen SQL: SELECT MAX specific_impulse__s_ FROM table_15944_5 WHERE effective_exhaust_velocity__m_s_ = '4423';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MAX
+
+--- Question 57 ---
+Question: What is the most noteworthy Bike No that has a Position bigger than 1, and a Points bigger than 369, and an Equipment of zabel-wsp?
+Expected SQL: SELECT MAX(bike_no) FROM table_name_77 WHERE position > 1 AND points > 369 AND equipment = "zabel-wsp"
+Model Gen SQL: SELECT MAX bike_no FROM table_name_77 WHERE position > 1 AND points > 369 AND equipment = 'zabel-wsp';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MAX
+
+--- Question 58 ---
+Question: Tell me the number range for 4vip
+Expected SQL: SELECT no_range FROM table_name_36 WHERE type = "4vip"
+Model Gen SQL: SELECT no_range FROM table_name_36 WHERE type = '4vip';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 59 ---
+Question: When the stamp duty reserve tax is 3,669 what is the percentage over gdp?
+Expected SQL: SELECT over_gdp__in__percentage_ FROM table_1618358_1 WHERE stamp_duty_reserve_tax = "3,669"
+Model Gen SQL: SELECT over_gdp__in__percentage_ FROM table_1618358_1 WHERE stamp_duty_reserve_tax = '3,669';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 60 ---
+Question: What is the freestyle leg for the Netherlands?
+Expected SQL: SELECT freestyle_leg FROM table_name_69 WHERE country = "netherlands"
+Model Gen SQL: SELECT freestyle_leg FROM table_name_69 WHERE country = 'Netherlands';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 61 ---
+Question: Which Attendance has a Tie number of 5?
+Expected SQL: SELECT attendance FROM table_name_63 WHERE tie_no = "5"
+Model Gen SQL: SELECT attendance FROM table_name_63 WHERE tie_no = '5';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 62 ---
+Question: What is the party when the candidates were ernest istook (r) 69% garland mcwatters (d) 28%?
+Expected SQL: SELECT party FROM table_1341423_36 WHERE candidates = "Ernest Istook (R) 69% Garland McWatters (D) 28%"
+Model Gen SQL: SELECT party FROM table_1341423_36 WHERE candidates = 'Ernest Istook (R) 69% Garland McWatters (D) 28%';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 63 ---
+Question: Which player had a To par of +11?
+Expected SQL: SELECT player FROM table_name_55 WHERE to_par = "+11"
+Model Gen SQL: SELECT player FROM table_name_55 WHERE to_par = '+11';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 64 ---
+Question: What is the isotopic mass (u) when the nuclide is 89 y?
+Expected SQL: SELECT isotopic_mass___u__ FROM table_name_6 WHERE nuclide = "89 y"
+Model Gen SQL: SELECT isotopic_mass___u__ FROM table_name_6 WHERE nuclide = '89 Y';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 65 ---
+Question: How tall is player 42 from Long Beach State?
+Expected SQL: SELECT height_in_ft FROM table_name_69 WHERE no_s_ = "42" AND school_club_team_country = "long beach state"
+Model Gen SQL: SELECT height_in_ft FROM table_name_69 WHERE no_s_ = '42' AND school_club_team_country = 'Long Beach State';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 66 ---
+Question: In what Round was the draft pick from Florida with an Overall less than 166?
+Expected SQL: SELECT AVG(round) FROM table_name_93 WHERE college = "florida" AND overall < 166
+Model Gen SQL: SELECT round FROM table_name_93 WHERE college = 'florida' AND overall < '166';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 67 ---
+Question: What is Hon. Vicente Q. Roxas appointment date?
+Expected SQL: SELECT date_of_appointment FROM table_name_25 WHERE name = "hon. vicente q. roxas"
+Model Gen SQL: SELECT date_of_appointment FROM table_name_25 WHERE name = 'Hon. Vicente Q. Roxas';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 68 ---
+Question: How many wins does he have?
+Expected SQL: SELECT MAX(wins) FROM table_2169966_1
+Model Gen SQL: SELECT wins FROM table_2169966_1;
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 69 ---
+Question: Tournament of tokyo, japan, and a Score of 4–6, 6–4, 6–4 had which date attached?
+Expected SQL: SELECT date FROM table_name_91 WHERE tournament = "tokyo, japan" AND score = "4–6, 6–4, 6–4"
+Model Gen SQL: SELECT date FROM table_name_91 WHERE tournament = 'tokyo, japan' AND score = '4–6, 6–4, 6–4';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 70 ---
+Question: what is the tournament when the score is 7-6(0), 6-3?
+Expected SQL: SELECT tournament FROM table_name_48 WHERE score = "7-6(0), 6-3"
+Model Gen SQL: SELECT tournament FROM table_name_48 WHERE score = '7-6(0), 6-3';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 71 ---
+Question: Who was the Class AA winner when Plains was Class A winner and Lubbock was Class AAAAA winner?
+Expected SQL: SELECT class_aA FROM table_14603057_2 WHERE class_a = "Plains" AND class_aAAAA = Lubbock
+Model Gen SQL: SELECT class_aA FROM table_14603057_2 WHERE class_a = 'Plains' AND class_aAAAA = 'Lubbock';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 72 ---
+Question: Name the Score which has a Partner of jorge lozano, an Outcome of runner-up, and Opponents in the final of udo riglewski michael stich?
+Expected SQL: SELECT score_in_the_final FROM table_name_85 WHERE partner = "jorge lozano" AND outcome = "runner-up" AND opponents_in_the_final = "udo riglewski michael stich"
+Model Gen SQL: SELECT score_in_the_final FROM table_name_85 WHERE partner = 'jorge lozano' AND outcome = 'runner-up' AND opponents_in_the_final = 'udo riglewski michael stich';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 73 ---
+Question: Which film is rented at a fee of 0.99 and has less than 3 in the inventory? List the film title and id.
+Expected SQL: SELECT title, film_id FROM film WHERE rental_rate = 0.99 INTERSECT SELECT T1.title, T1.film_id FROM film AS T1 JOIN inventory AS T2 ON T1.film_id = T2.film_id GROUP BY T1.film_id HAVING COUNT(*) < 3
+Model Gen SQL: SELECT title, film_id FROM film WHERE rental_rate = '0.99' AND film_id IN (SELECT film_id FROM inventory GROUP BY film_id HAVING COUNT(*) < 3);
+Status: ❌ SYNTAX ERROR
+  Error message: table film already exists
+
+--- Question 74 ---
+Question: What is the name of the incumbent for Glenn Nye?
+Expected SQL: SELECT incumbent FROM table_name_62 WHERE democratic = "glenn nye"
+Model Gen SQL: SELECT incumbent FROM table_name_62 WHERE democratic = 'Glenn Nye';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 75 ---
+Question: Find the name, population and expected life length of asian country with the largest area?
+Expected SQL: SELECT Name, Population, LifeExpectancy FROM country WHERE Continent = "Asia" ORDER BY SurfaceArea DESC LIMIT 1
+Model Gen SQL: SELECT Name, Population, LifeExpectancy FROM country WHERE Continent = 'Asian' ORDER BY SurfaceArea DESC LIMIT 1;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 76 ---
+Question: Who went to ohio state?
+Expected SQL: SELECT player FROM table_name_53 WHERE college = "ohio state"
+Model Gen SQL: SELECT player FROM table_name_53 WHERE college = 'ohio state';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 77 ---
+Question: What is the total amount of Top-25 having a Top-5 greater than 1?
+Expected SQL: SELECT COUNT(top_25) FROM table_name_92 WHERE top_5 > 1
+Model Gen SQL: SELECT COUNT(top_25) FROM table_name_92 WHERE top_5 > 1;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 78 ---
+Question: what is the earliest year when the result is won and the role/episode is fox mulder?
+Expected SQL: SELECT MIN(year) FROM table_name_21 WHERE result = "won" AND role_episode = "fox mulder"
+Model Gen SQL: SELECT MIN year FROM table_name_21 WHERE result = 'won' AND role_episode = 'fox mulder';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MIN
+
+--- Question 79 ---
+Question: What is the number of students in Fall 09 from the state that had 3940 in Fall 07?
+Expected SQL: SELECT MAX(fall_09) FROM table_15055594_6 WHERE fall_07 = 3940
+Model Gen SQL: SELECT COUNT(fall_09) FROM table_15055594_6 WHERE fall_07 = '3940';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: [(0,)]
+
+--- Question 80 ---
+Question: Who's the player eliminated on episode 5?
+Expected SQL: SELECT player FROM table_name_50 WHERE eliminated = "episode 5"
+Model Gen SQL: SELECT player FROM table_name_50 WHERE eliminated = 'episode 5';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 81 ---
+Question: What are the first name and last name of the professionals who have done treatment with cost below average?
+Expected SQL: SELECT DISTINCT T1.first_name, T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments)
+Model Gen SQL: SELECT T1.first_name, T1.last_name FROM Professionals AS T1 INNER JOIN Treatments AS T2 ON T1.Id = T2.Id WHERE T2.cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments);
+Status: ❌ SYNTAX ERROR
+  Error message: table Treatments already exists
+
+--- Question 82 ---
+Question: What is the nationality of player Jani Hakanpaa?
+Expected SQL: SELECT nationality FROM table_name_65 WHERE player = "jani hakanpaa"
+Model Gen SQL: SELECT nationality FROM table_name_65 WHERE player = 'Jani Hakanpaa';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 83 ---
+Question: What country does jocelyne bourassa play for?
+Expected SQL: SELECT country FROM table_name_73 WHERE champion = "jocelyne bourassa"
+Model Gen SQL: SELECT country FROM table_name_73 WHERE champion = 'jocelyne bourassa';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 84 ---
+Question: What is the lowest score that has alastair forsyth as the player?
+Expected SQL: SELECT MIN(score) FROM table_name_28 WHERE player = "alastair forsyth"
+Model Gen SQL: SELECT MIN(score) FROM table_name_28 WHERE player = 'alastair forsyth';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 85 ---
+Question: How many kids stay in the room DAMIEN TRACHSEL checked in on Sep 21, 2010?
+Expected SQL: SELECT Kids FROM Reservations WHERE CheckIn = "2010-09-21" AND FirstName = "DAMIEN" AND LastName = "TRACHSEL"
+Model Gen SQL: SELECT Kids FROM Reservations WHERE CheckIn = 'Sep 21, 2010' AND LastName = 'TRACHSEL' AND FirstName = 'DAMIEN';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 86 ---
+Question: Which player is from Utah?
+Expected SQL: SELECT player FROM table_11677691_7 WHERE college = "Utah"
+Model Gen SQL: SELECT player FROM table_11677691_7 WHERE college = 'Utah';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 87 ---
+Question: How many people attended the Rams game against the Kansas City Chiefs?
+Expected SQL: SELECT attendance FROM table_name_86 WHERE opponent = "kansas city chiefs"
+Model Gen SQL: SELECT attendance FROM table_name_86 WHERE opponent = 'Kansas City Chiefs';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 88 ---
+Question: What is the Away team at the game with a Score of 4 – 2?
+Expected SQL: SELECT away_team FROM table_name_29 WHERE score = "4 – 2"
+Model Gen SQL: SELECT away_team FROM table_name_29 WHERE score = '4 – 2';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 89 ---
+Question: When 80 is the tries for what is the try bonus?
+Expected SQL: SELECT try_bonus FROM table_17941032_1 WHERE tries_for = "80"
+Model Gen SQL: SELECT try_bonus FROM table_17941032_1 WHERE tries_for = '80';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 90 ---
+Question: What was the record at the game against the Blue Jays with a loss of Batista (0–3)?
+Expected SQL: SELECT record FROM table_name_22 WHERE opponent = "blue jays" AND loss = "batista (0–3)"
+Model Gen SQL: SELECT record FROM table_name_22 WHERE loss = 'Batista (0–3)' AND opponent = 'Blue Jays';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 91 ---
+Question: Which country had a premiere on July 24, 2010?
+Expected SQL: SELECT country FROM table_name_65 WHERE premiere = "july 24, 2010"
+Model Gen SQL: SELECT country FROM table_name_65 WHERE premiere = 'July 24, 2010';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 92 ---
+Question: When playing on grass who was the opponents in a year greater than 1993, and playing with Jonas Björkman?
+Expected SQL: SELECT opponents FROM table_name_10 WHERE surface = "grass" AND year > 1993 AND partner = "jonas björkman"
+Model Gen SQL: SELECT opponents FROM table_name_10 WHERE surface = 'grass' AND year > '1993' AND partner = 'Jonas Björkman';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 93 ---
+Question: What is the League with a Year that is 1990/91?
+Expected SQL: SELECT league FROM table_name_64 WHERE year = "1990/91"
+Model Gen SQL: SELECT league FROM table_name_64 WHERE year = '1990/91';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 94 ---
+Question: What round had a record of 4-1?
+Expected SQL: SELECT round FROM table_name_17 WHERE record = "4-1"
+Model Gen SQL: SELECT round FROM table_name_17 WHERE record = '4-1';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 95 ---
+Question: Who is the team captain of the team that Lübzer is the shirt sponsor for?
+Expected SQL: SELECT team AS captain FROM table_name_88 WHERE shirt_sponsor = "lübzer"
+Model Gen SQL: SELECT team FROM table_name_88 WHERE shirt_sponsor = 'Lübzer';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 96 ---
+Question: I want to know the crowd with a home team of carlton
+Expected SQL: SELECT SUM(crowd) FROM table_name_46 WHERE home_team = "carlton"
+Model Gen SQL: SELECT crowd FROM table_name_46 WHERE home_team = 'carlton';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 97 ---
+Question: In what year was the average speed 92.68?
+Expected SQL: SELECT year FROM table_2268216_1 WHERE average_speed__mph_ = "92.68"
+Model Gen SQL: SELECT year FROM table_2268216_1 WHERE average_speed__mph_ = '92.68';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 98 ---
+Question: Where was the home court on April 14?
+Expected SQL: SELECT home FROM table_name_34 WHERE date = "april 14"
+Model Gen SQL: SELECT home FROM table_name_34 WHERE date = 'April 14';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 99 ---
+Question: When the home team north melbourne was playing what did they score?
+Expected SQL: SELECT home_team AS score FROM table_name_78 WHERE home_team = "north melbourne"
+Model Gen SQL: SELECT home_team, home_team_score FROM table_name_78 WHERE home_team = 'north melbourne';
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: home_team_score
+
+--- Question 100 ---
+Question: what is the original air date for julie warner?
+Expected SQL: SELECT original_air_date FROM table_26561498_1 WHERE patient_portrayer = "Julie Warner"
+Model Gen SQL: SELECT original_air_date FROM table_26561498_1 WHERE patient_portrayer = 'Julie Warner';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 101 ---
+Question: Name the result for 1980s
+Expected SQL: SELECT result FROM table_19508635_1 WHERE theme = "1980s"
+Model Gen SQL: SELECT result FROM table_19508635_1 WHERE theme = '1980s';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 102 ---
+Question: Who is the opponent on November 14?
+Expected SQL: SELECT opponent FROM table_name_53 WHERE date = "november 14"
+Model Gen SQL: SELECT opponent FROM table_name_53 WHERE date = 'November 14';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 103 ---
+Question: What is the average goal difference with 51 goals scored against and less than 17 losses?
+Expected SQL: SELECT AVG(goal_difference) FROM table_name_4 WHERE goals_against = 51 AND losses < 17
+Model Gen SQL: SELECT AVG(goal_difference) FROM table_name_4 WHERE goals_against = '51' AND losses < '17';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 104 ---
+Question: What is the average of all the years when the notes are “electronics brand?”
+Expected SQL: SELECT AVG(year) FROM table_name_36 WHERE notes = "electronics brand"
+Model Gen SQL: SELECT AVG(year) FROM table_name_36 WHERE notes = "electronics brand";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 105 ---
+Question: What is the highest total medals a team with less than 15 gold, less than 5 bronze, and a rank larger than 10 has?
+Expected SQL: SELECT MAX(total) FROM table_name_96 WHERE gold < 15 AND bronze < 5 AND rank > 10
+Model Gen SQL: SELECT MAX(total) FROM table_name_96 WHERE gold < 15 AND bronze < 5 AND rank > 10;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 106 ---
+Question: What is the A-side for it Never Entered My Mind, Part 2?
+Expected SQL: SELECT a_side FROM table_name_75 WHERE b_side = "it never entered my mind, part 2"
+Model Gen SQL: SELECT a_side FROM table_name_75 WHERE b_side = 'it Never Entered My Mind, Part 2';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 107 ---
+Question: What's the lowest avg/g for a GP-GS of 12-12 and a gain less than 16?
+Expected SQL: SELECT MIN(avg_g) FROM table_name_10 WHERE gp_gs = "12-12" AND gain < 16
+Model Gen SQL: SELECT MIN(avg_g) FROM table_name_10 WHERE gp_gs = '12-12' AND gain < '16';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 108 ---
+Question: Which Date has a Result of 2–2, and a Venue of H?
+Expected SQL: SELECT date FROM table_name_3 WHERE result = "2–2" AND venue = "h"
+Model Gen SQL: SELECT date FROM table_name_3 WHERE result = '2–2' AND venue = 'H';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 109 ---
+Question: What are the scores for games played on september 9?
+Expected SQL: SELECT score FROM table_17104539_12 WHERE date = "September 9"
+Model Gen SQL: SELECT score FROM table_17104539_12 WHERE date = 'september 9';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 110 ---
+Question: Tell me the average final rank for loe more than 10 and point less than 43
+Expected SQL: SELECT AVG(final_rank) FROM table_name_8 WHERE lose > 10 AND point < 43
+Model Gen SQL: SELECT AVG(final_rank) FROM table_name_8 WHERE lose > 10 AND point < 43;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 111 ---
+Question: What team has a high score with tracy mcgrady (24)?
+Expected SQL: SELECT team FROM table_name_70 WHERE high_points = "tracy mcgrady (24)"
+Model Gen SQL: SELECT team FROM table_name_70 WHERE high_points = 'tracy mcgrady (24)';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 112 ---
+Question: What is the home team of the April 14 game?
+Expected SQL: SELECT home FROM table_name_27 WHERE date = "april 14"
+Model Gen SQL: SELECT home FROM table_name_27 WHERE date = 'April 14';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 113 ---
+Question: Name the most draws when goals against is more than 56 and wins is more than 14
+Expected SQL: SELECT MAX(draws) FROM table_name_89 WHERE goals_against > 56 AND wins > 14
+Model Gen SQL: SELECT MAX draws FROM table_name_89 WHERE goals_against > 56 AND wins > 14;
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: MAX
+
+--- Question 114 ---
+Question: Which City has a State of massachusetts, and a School of northeastern university?
+Expected SQL: SELECT city FROM table_name_59 WHERE state = "massachusetts" AND school = "northeastern university"
+Model Gen SQL: SELECT city FROM table_name_59 WHERE state = 'massachusetts' AND school = 'northeastern university';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 115 ---
+Question: What was the result for Pennsylvania 8?
+Expected SQL: SELECT result FROM table_2668401_12 WHERE district = "Pennsylvania 8"
+Model Gen SQL: SELECT result FROM table_2668401_12 WHERE district = 'Pennsylvania 8';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 116 ---
+Question: Who is the music by for episode the Elbow Room?
+Expected SQL: SELECT music_by FROM table_191105_4 WHERE episode_title = "Elbow Room"
+Model Gen SQL: SELECT music_by FROM table_191105_4 WHERE episode_title = 'The Elbow Room';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 117 ---
+Question: In which division were the IceGators when coached by Todd Gordon?
+Expected SQL: SELECT division FROM table_name_24 WHERE coach = "todd gordon"
+Model Gen SQL: SELECT division FROM table_name_24 WHERE coach = 'Todd Gordon';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 118 ---
+Question: Which route has a terminus of pine Forest?
+Expected SQL: SELECT name FROM table_name_57 WHERE terminus = "pine forest"
+Model Gen SQL: SELECT name FROM table_name_57 WHERE terminus = 'pine Forest';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 119 ---
+Question: With a To par of –5, what is Nick Faldo's Place?
+Expected SQL: SELECT place FROM table_name_95 WHERE to_par = "–5" AND player = "nick faldo"
+Model Gen SQL: SELECT place FROM table_name_95 WHERE to_par = '-5' AND player = 'Nick Faldo';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 120 ---
+Question: Which Week has a TV Time of cbs 1:00pm, and an Attendance of 72,714?
+Expected SQL: SELECT week FROM table_name_44 WHERE tv_time = "cbs 1:00pm" AND attendance = "72,714"
+Model Gen SQL: SELECT week FROM table_name_44 WHERE tv_time = 'cbs 1:00pm' AND attendance = '72,714';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 121 ---
+Question: What Title is listed for the Year of 1999?
+Expected SQL: SELECT title FROM table_name_63 WHERE year = 1999
+Model Gen SQL: SELECT title FROM table_name_63 WHERE year = '1999';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 122 ---
+Question: Name the matches for gold coast
+Expected SQL: SELECT matches FROM table_name_11 WHERE team = "gold coast"
+Model Gen SQL: SELECT matches FROM table_name_11 WHERE team = 'gold coast';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 123 ---
+Question: What is the name where the delivered date is 1839/08?
+Expected SQL: SELECT name FROM table_name_22 WHERE delivered = "1839/08"
+Model Gen SQL: SELECT name FROM table_name_22 WHERE delivered = '1839/08';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 124 ---
+Question: Who in series 5 corresponds to Deborah Meaden in series 3?
+Expected SQL: SELECT series_5 FROM table_name_57 WHERE series_3 = "deborah meaden"
+Model Gen SQL: SELECT series_5 FROM table_name_57 WHERE series_3 = 'Deborah Meaden';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 125 ---
+Question: What day is essendon the home team?
+Expected SQL: SELECT date FROM table_name_69 WHERE home_team = "essendon"
+Model Gen SQL: SELECT date FROM table_name_69 WHERE home_team = 'essendon';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 126 ---
+Question: tell me the average roll for the featherston area and integrated authority.
+Expected SQL: SELECT AVG(roll) FROM table_name_48 WHERE area = "featherston" AND authority = "integrated"
+Model Gen SQL: SELECT AVG(roll) FROM table_name_48 WHERE area = 'featherston' AND authority = 'integrated';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 127 ---
+Question: WHAT IS THE WORLDWIDE BOX OFFICE FOR BRAVE?
+Expected SQL: SELECT worldwide FROM table_name_41 WHERE film = "brave"
+Model Gen SQL: SELECT worldwide FROM table_name_41 WHERE film = 'Brave';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 128 ---
+Question: Which Opponent has a Record of 2–0?
+Expected SQL: SELECT opponent FROM table_name_80 WHERE record = "2–0"
+Model Gen SQL: SELECT opponent FROM table_name_80 WHERE record = '2–0';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 129 ---
+Question: What was the domestic box office for "House on Haunted Hill"?
+Expected SQL: SELECT domestic_box_office FROM table_2203760_4 WHERE film = "House on Haunted Hill"
+Model Gen SQL: SELECT domestic_box_office FROM table_2203760_4 WHERE film = "House on Haunted Hill";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 130 ---
+Question: What years did Tom Lehman win?
+Expected SQL: SELECT year_s__won FROM table_name_25 WHERE player = "tom lehman"
+Model Gen SQL: SELECT year_s__won FROM table_name_25 WHERE player = 'Tom Lehman';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 131 ---
+Question: What is the event where the opponent was Chris Barden?
+Expected SQL: SELECT event FROM table_name_12 WHERE opponent = "chris barden"
+Model Gen SQL: SELECT event FROM table_name_12 WHERE opponent = 'Chris Barden';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 132 ---
+Question: When 1546 is inns of court and chancery what is the finsbury division?
+Expected SQL: SELECT finsbury_division FROM table_16677738_1 WHERE inns_of_court_and_chancery = 1546
+Model Gen SQL: SELECT finsbury_division FROM table_16677738_1 WHERE inns_of_court_and_chancery = '1546';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 133 ---
+Question: Which Total has Gold of 2?
+Expected SQL: SELECT MAX(total) FROM table_name_60 WHERE gold = 2
+Model Gen SQL: SELECT total FROM table_name_60 WHERE gold = '2';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 134 ---
+Question: What is the highest rank from the year greater than 2010 with 430 main span metres?
+Expected SQL: SELECT MAX(rank) FROM table_name_69 WHERE year_opened > 2010 AND main_span_metres = "430"
+Model Gen SQL: SELECT MAX(rank) FROM table_name_69 WHERE year_opened > '2010' AND main_span_metres = '430';
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 135 ---
+Question: What was the F/Laps when the Wins were 0 and the Position was 4th?
+Expected SQL: SELECT f_laps FROM table_name_97 WHERE wins = "0" AND position = "4th"
+Model Gen SQL: SELECT f_laps FROM table_name_97 WHERE wins = '0' AND position = '4th';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 136 ---
+Question: Show all allergies and their types.
+Expected SQL: SELECT allergy, allergytype FROM Allergy_type
+Model Gen SQL: SELECT allergy, allergytype FROM Allergy_type;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 137 ---
+Question: What is the part 4 when part 1 is "lesan"?
+Expected SQL: SELECT part_4 FROM table_1745843_8 WHERE part_1 = "lesan"
+Model Gen SQL: SELECT part_4 FROM table_1745843_8 WHERE part_1 = "lesan";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 138 ---
+Question: Name the total number of start when finish is less than 4
+Expected SQL: SELECT COUNT(start) FROM table_name_21 WHERE finish < 4
+Model Gen SQL: SELECT COUNT start FROM table_name_21 WHERE finish < 4;
+Status: ❌ SYNTAX ERROR
+  Error message: no such column: COUNT
+
+--- Question 139 ---
+Question: How many yards per attempt were there when total yards were 513?
+Expected SQL: SELECT yards_per_attempt FROM table_19517448_3 WHERE total_yards = "513"
+Model Gen SQL: SELECT yards_per_attempt FROM table_19517448_3 WHERE total_yards = '513';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 140 ---
+Question: What is Ship, when Commissioned is "13 March 1982"?
+Expected SQL: SELECT ship FROM table_name_54 WHERE commissioned = "13 march 1982"
+Model Gen SQL: SELECT ship FROM table_name_54 WHERE commissioned = "13 March 1982";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 141 ---
+Question: Tell me the score for 9 may 2001
+Expected SQL: SELECT score FROM table_name_15 WHERE date = "9 may 2001"
+Model Gen SQL: SELECT score FROM table_name_15 WHERE date = '9 May 2001';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 142 ---
+Question: Name the record that has a stream of l1 and score of l 95–111
+Expected SQL: SELECT record FROM table_name_45 WHERE streak = "l1" AND score = "l 95–111"
+Model Gen SQL: SELECT record FROM table_name_45 WHERE streak = 'l1' AND score = '95–111';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 143 ---
+Question: What was the original title for the film used in nomination of street days?
+Expected SQL: SELECT original_title FROM table_name_91 WHERE film_title_used_in_nomination = "street days"
+Model Gen SQL: SELECT original_title FROM table_name_91 WHERE film_title_used_in_nomination = 'Street Days';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 144 ---
+Question: What is the result for director Said Elmarouk before 2008?
+Expected SQL: SELECT result FROM table_name_2 WHERE director = "said elmarouk" AND year < 2008
+Model Gen SQL: SELECT result FROM table_name_2 WHERE director = 'Said Elmarouk' AND year < '2008';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 145 ---
+Question: How many episodes have a duration of 3?
+Expected SQL: SELECT COUNT(episodes) FROM table_name_35 WHERE duration = "3"
+Model Gen SQL: SELECT episodes FROM table_name_35 WHERE duration = '3';
+Status: ❌ MISMATCH
+  Expected Data: [(0,)]
+  Got Data: []
+
+--- Question 146 ---
+Question: Which Year has a Match of 63?
+Expected SQL: SELECT year FROM table_name_82 WHERE match = 63
+Model Gen SQL: SELECT year FROM table_name_82 WHERE match = '63';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 147 ---
+Question: What Team has Bob Wollek as a Driver with 76 Laps in C1 Class?
+Expected SQL: SELECT team FROM table_name_63 WHERE class = "c1" AND laps = 76 AND driver = "bob wollek"
+Model Gen SQL: SELECT team FROM table_name_63 WHERE driver = 'Bob Wollek' AND laps = '76' AND class = 'C1';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 148 ---
+Question: How many games did team iurbentia bilbao have with rebounds higher than 212?
+Expected SQL: SELECT SUM(games) FROM table_name_27 WHERE team = "iurbentia bilbao" AND rebounds > 212
+Model Gen SQL: SELECT games FROM table_name_27 WHERE team = 'iurbentia bilbao' AND rebounds > '212';
+Status: ❌ MISMATCH
+  Expected Data: [(None,)]
+  Got Data: []
+
+--- Question 149 ---
+Question: What is the total grid number that has 14 laps and a time of +29.483?
+Expected SQL: SELECT COUNT(grid) FROM table_name_6 WHERE laps = 14 AND time = "+29.483"
+Model Gen SQL: SELECT SUM(grid) FROM table_name_6 WHERE laps = '14' AND time = '+29.483';
+Status: ❌ MISMATCH
+  Expected Data: [(0,)]
+  Got Data: [(None,)]
+
+--- Question 150 ---
+Question: What is the average number of people injured by all perpetrators?
+Expected SQL: SELECT AVG(Injured) FROM perpetrator
+Model Gen SQL: SELECT AVG(Injured) FROM perpetrator;
+Status: ✅ MATCH (Rows: 1)
+
+==================================================
+🚀 RUNNING: Fine-Tuned Model (JSON Mode: False)
+==================================================
+
+--- Question 1 ---
+Question: What is the high lap total for pedro diniz?
+Expected SQL: SELECT MAX(laps) FROM table_name_24 WHERE driver = "pedro diniz"
+Model Gen SQL: SELECT MAX(laps) FROM table_name_24 WHERE driver = "pedro diniz";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 2 ---
+Question: What is listed for the Tries against that has a Played of 22, along with a Club of Ystalyfera RFC?
+Expected SQL: SELECT tries_against FROM table_name_95 WHERE played = "22" AND club = "ystalyfera rfc"
+Model Gen SQL: SELECT tries_against FROM table_name_95 WHERE played = 22 AND club = "ystalyfera rfc";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 3 ---
+Question: What Career has a Parallel of –, a Combined of –, and a Giant Slalom of 5?
+Expected SQL: SELECT career FROM table_name_6 WHERE parallel = "–" AND combined = "–" AND giant_slalom = "5"
+Model Gen SQL: SELECT career FROM table_name_6 WHERE parallel = "–" AND combined = "–" AND giant_slalom = 5;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 4 ---
+Question: What year is the venue in budapest, hungary?
+Expected SQL: SELECT SUM(year) FROM table_name_17 WHERE venue = "budapest, hungary"
+Model Gen SQL: SELECT SUM(year) FROM table_name_17 WHERE venue = "budapest, hungary";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 5 ---
+Question: Name the least purse for 2011
+Expected SQL: SELECT MIN(purse___us) AS $__ FROM table_15618241_1 WHERE year = 2011
+Model Gen SQL: SELECT MIN(purse___us) FROM table_15618241_1 WHERE year = 2011;
+Status: ❌ MISMATCH
+  Expected Data: near "$__": syntax error
+  Got Data: [(None,)]
+
+--- Question 6 ---
+Question: What is the local/network with an Ad frequency of 15 minutes?
+Expected SQL: SELECT local_networked FROM table_name_1 WHERE ad_freq = "15 minutes"
+Model Gen SQL: SELECT local_networked FROM table_name_1 WHERE ad_freq = "15 minutes";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 7 ---
+Question: What was the score when Calgary was visiting team and Niittymaki had the decision?
+Expected SQL: SELECT score FROM table_name_78 WHERE decision = "niittymaki" AND visitor = "calgary"
+Model Gen SQL: SELECT score FROM table_name_78 WHERE visitor = "calgary" AND decision = "niittymaki";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 8 ---
+Question: How many current drivers, as of March 20, 2010 does Denmark have?
+Expected SQL: SELECT current_march_20, _2010 FROM table_19487922_2 WHERE country = "Denmark"
+Model Gen SQL: SELECT COUNT(_2010) FROM table_19487922_2 WHERE country = "Denmark" AND current_march_20 = "2010";
+Status: ❌ MISMATCH
+  Expected Data: []
+  Got Data: [(0,)]
+
+--- Question 9 ---
+Question: What method had a record 12-2-3?
+Expected SQL: SELECT method FROM table_name_87 WHERE record = "12-2-3"
+Model Gen SQL: SELECT method FROM table_name_87 WHERE record = "12-2-3";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 10 ---
+Question: Name Nationality / Opponent on 10 january 1998?
+Expected SQL: SELECT nationality___opponent FROM table_name_25 WHERE date = "10 january 1998"
+Model Gen SQL: SELECT nationality___opponent FROM table_name_25 WHERE date = "10 january 1998";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 11 ---
+Question: how many times is there more than 0 draws and more than 0 losses?
+Expected SQL: SELECT COUNT(played) FROM table_name_5 WHERE drawn > 0 AND lost > 0
+Model Gen SQL: SELECT COUNT(played) FROM table_name_5 WHERE drawn > 0 AND lost > 0;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 12 ---
+Question: Who started in 2008 with 0 points?
+Expected SQL: SELECT team_name FROM table_17289224_1 WHERE season = "2008" AND points = 0
+Model Gen SQL: SELECT team_name FROM table_17289224_1 WHERE season = 2008 AND points = 0;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 13 ---
+Question: How many vap values are associated with 140469 valid votes?
+Expected SQL: SELECT COUNT(vap) FROM table_2683116_1 WHERE valid_votes = 140469
+Model Gen SQL: SELECT COUNT(vap) FROM table_2683116_1 WHERE valid_votes = 140469;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 14 ---
+Question: Find the id and name of the most expensive base price room.
+Expected SQL: SELECT RoomId, roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1
+Model Gen SQL: SELECT RoomId, roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 15 ---
+Question: Silver larger than 0, and a Total smaller than 3, and a Nation of bulgaria, and a Bronze smaller than 0 had what sum of gold?
+Expected SQL: SELECT SUM(gold) FROM table_name_51 WHERE silver > 0 AND total < 3 AND nation = "bulgaria" AND bronze < 0
+Model Gen SQL: SELECT SUM(gold) FROM table_name_51 WHERE silver > 0 AND total < 3 AND nation = "bulgaria" AND bronze < 0;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 16 ---
+Question: What is the Population 1961 of West Sussex with a Population of 120,952 or less?
+Expected SQL: SELECT SUM(population_1961) FROM table_name_22 WHERE administrative_county = "west sussex" AND population_1891 < 120 OFFSET 952
+Model Gen SQL: SELECT SUM(population_1961) FROM table_name_22 WHERE administrative_county = "west sussex" AND population_1891 = "120,952";
+Status: ❌ MISMATCH
+  Expected Data: near "OFFSET": syntax error
+  Got Data: [(None,)]
+
+--- Question 17 ---
+Question: Who did the most high assists during the game played on February 6?
+Expected SQL: SELECT high_assists FROM table_23248940_9 WHERE date = "February 6"
+Model Gen SQL: SELECT high_assists FROM table_23248940_9 WHERE date = "February 6";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 18 ---
+Question: What color is model # pd-kb400w?
+Expected SQL: SELECT color FROM table_name_14 WHERE model__number = "pd-kb400w"
+Model Gen SQL: SELECT color FROM table_name_14 WHERE model__number = "pd-kb400w";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 19 ---
+Question: Who was the home team when the VFL played Arden Street Oval?
+Expected SQL: SELECT home_team FROM table_name_6 WHERE venue = "arden street oval"
+Model Gen SQL: SELECT home_team FROM table_name_6 WHERE venue = "arden street oval";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 20 ---
+Question: What was the margin of victory when Mark Calcavecchia was the runner-up?
+Expected SQL: SELECT margin_of_victory FROM table_name_53 WHERE runner_s__up = "mark calcavecchia"
+Model Gen SQL: SELECT margin_of_victory FROM table_name_53 WHERE runner_s__up = "Mark Calcavecchia";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 21 ---
+Question: What is the total number of postseason games that team Boston Red Stockings participated in?
+Expected SQL: SELECT COUNT(*) FROM (SELECT * FROM postseason AS T1 JOIN team AS T2 ON T1.team_id_winner = T2.team_id_br WHERE T2.name = 'Boston Red Stockings' UNION SELECT * FROM postseason AS T1 JOIN team AS T2 ON T1.team_id_loser = T2.team_id_br WHERE T2.name = 'Boston Red Stockings')
+Model Gen SQL: SELECT COUNT(team_id_winner) FROM postseason WHERE team_id_loser = "boston red stockings" UNION SELECT COUNT(team_id_winner) FROM postseason WHERE team_id_winner = "boston red stockings";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 22 ---
+Question: What is the lowest wins the club with a position of 4 and less than 4 losses has?
+Expected SQL: SELECT MIN(wins) FROM table_name_67 WHERE position = 4 AND loses < 4
+Model Gen SQL: SELECT MIN(wins) FROM table_name_67 WHERE position = 4 AND loses < 4;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 23 ---
+Question: Which Location has a Method of submission (rear naked choke), a Round of 1, and an Event of ufc 127?
+Expected SQL: SELECT location FROM table_name_57 WHERE method = "submission (rear naked choke)" AND round = 1 AND event = "ufc 127"
+Model Gen SQL: SELECT location FROM table_name_57 WHERE method = "submission (rear naked choke)" AND round = 1 AND event = "ufc 127";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 24 ---
+Question: What is the Irish name listed with 62% Irish speakers?
+Expected SQL: SELECT irish_name FROM table_101196_1 WHERE irish_speakers = "62%"
+Model Gen SQL: SELECT irish_name FROM table_101196_1 WHERE irish_speakers = "62%";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 25 ---
+Question: Name the least births for conversion being 26,333
+Expected SQL: SELECT MIN(births) FROM table_28137918_5 WHERE conversions = "26,333"
+Model Gen SQL: SELECT MIN(births) FROM table_28137918_5 WHERE conversions = "26,333";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 26 ---
+Question: Find the id of songs that are available in mp4 format and have resolution lower than 1000.
+Expected SQL: SELECT f_id FROM files WHERE formats = "mp4" INTERSECT SELECT f_id FROM song WHERE resolution < 1000
+Model Gen SQL: SELECT f_id FROM song WHERE formats = "mp4" AND resolution < 1000;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 27 ---
+Question: Name the commissioned-decommissioned for NVR page of aor-7
+Expected SQL: SELECT commissioned__decommissioned FROM table_name_17 WHERE nvr_page = "aor-7"
+Model Gen SQL: SELECT commissioned__decommissioned FROM table_name_17 WHERE nvr_page = "aor-7";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 28 ---
+Question: What's Salem State University's primary conference?
+Expected SQL: SELECT primary_conference FROM table_1974545_2 WHERE institution = "Salem State University"
+Model Gen SQL: SELECT primary_conference FROM table_1974545_2 WHERE institution = "Salem State University";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 29 ---
+Question: what is the race when the jockey is frankie dettori, the margin is more than 3 and the course is yarmouth?
+Expected SQL: SELECT race FROM table_name_48 WHERE jockey = "frankie dettori" AND margin > 3 AND course = "yarmouth"
+Model Gen SQL: SELECT race FROM table_name_48 WHERE jockey = "frankie dettori" AND margin > 3 AND course = "yarmouth";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 30 ---
+Question: Show the name and phone for customers with a mailshot with outcome code 'No Response'.
+Expected SQL: SELECT T1.customer_name, T1.customer_phone FROM customers AS T1 JOIN mailshot_customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.outcome_code = 'No Response'
+Model Gen SQL: SELECT T1.customer_name, T1.customer_phone FROM customers AS T1 JOIN mailshot_customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.outcome_code = 'No Response';
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 31 ---
+Question: When Star Zemba was featured in Week 3, who was the cyber girl for Week 2?
+Expected SQL: SELECT week_2 FROM table_name_11 WHERE week_3 = "star zemba"
+Model Gen SQL: SELECT week_2 FROM table_name_11 WHERE week_3 = "star zemba";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 32 ---
+Question: What Torque has an AMC Power Tech I6 Engine?
+Expected SQL: SELECT torque FROM table_name_68 WHERE engine = "amc power tech i6"
+Model Gen SQL: SELECT torque FROM table_name_68 WHERE engine = "amc power tech i6";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 33 ---
+Question: What was the largest crowd size at arden street oval?
+Expected SQL: SELECT MAX(crowd) FROM table_name_58 WHERE venue = "arden street oval"
+Model Gen SQL: SELECT MAX(crowd) FROM table_name_58 WHERE venue = "arden street oval";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 34 ---
+Question: Who is the outgoing manager when they were replaced by pablo centrone?
+Expected SQL: SELECT outgoing_manager FROM table_name_16 WHERE replaced_by = "pablo centrone"
+Model Gen SQL: SELECT outgoing_manager FROM table_name_16 WHERE replaced_by = "pablo centrone";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 35 ---
+Question: What was the maximum OTL if L is 28?
+Expected SQL: SELECT MAX(Otl) FROM table_2233872_1 WHERE l = 28
+Model Gen SQL: SELECT MAX(Otl) FROM table_2233872_1 WHERE l = 28;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 36 ---
+Question: What are the forename and surname of the driver who has the smallest laptime?
+Expected SQL: SELECT T1.forename, T1.surname FROM drivers AS T1 JOIN laptimes AS T2 ON T1.driverid = T2.driverid ORDER BY T2.milliseconds LIMIT 1
+Model Gen SQL: SELECT forename, surname FROM drivers WHERE driverid = (SELECT driverid FROM laptimes ORDER BY milliseconds LIMIT 1);
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 37 ---
+Question: When western michigan is the tournament winner how many conferences are there?
+Expected SQL: SELECT COUNT(conference) FROM table_24160890_3 WHERE tournament_winner = "Western Michigan"
+Model Gen SQL: SELECT COUNT(conference) FROM table_24160890_3 WHERE tournament_winner = "Western Michigan";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 38 ---
+Question: How many languages are in these films?
+Expected SQL: SELECT COUNT(DISTINCT language_id) FROM film
+Model Gen SQL: SELECT COUNT(language_id) FROM film;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 39 ---
+Question: Who was the team played on January 23?
+Expected SQL: SELECT team FROM table_17311759_6 WHERE date = "January 23"
+Model Gen SQL: SELECT team FROM table_17311759_6 WHERE date = "january 23";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 40 ---
+Question: What is the score of the Devil Rays on April 24?
+Expected SQL: SELECT score FROM table_name_28 WHERE opponent = "devil rays" AND date = "april 24"
+Model Gen SQL: SELECT score FROM table_name_28 WHERE opponent = "devil rays" AND date = "april 24";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 41 ---
+Question: What conference was the churchill chargers team in?
+Expected SQL: SELECT conference FROM table_11094950_1 WHERE team = "Churchill Chargers"
+Model Gen SQL: SELECT conference FROM table_11094950_1 WHERE team = "churchill chargers";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 42 ---
+Question: Where was the film about the garden of the finzi-continis made?
+Expected SQL: SELECT country FROM table_name_30 WHERE film_title_used_in_nomination = "the garden of the finzi-continis"
+Model Gen SQL: SELECT country FROM table_name_30 WHERE film_title_used_in_nomination = "the garden of the finzi-continis";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 43 ---
+Question: Which Opponent has a Record of 43-56?
+Expected SQL: SELECT opponent FROM table_name_75 WHERE record = "43-56"
+Model Gen SQL: SELECT opponent FROM table_name_75 WHERE record = "43-56";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 44 ---
+Question: What are the evening gown scores of contestants whose average is 9.266?
+Expected SQL: SELECT evening_gown FROM table_16390001_2 WHERE average = "9.266"
+Model Gen SQL: SELECT evening_gown FROM table_16390001_2 WHERE average = "9.266";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 45 ---
+Question: WHAT YEAR HAD 5 TOTAL MATCHES?
+Expected SQL: SELECT year FROM table_name_28 WHERE total_matches = 5
+Model Gen SQL: SELECT year FROM table_name_28 WHERE total_matches = "5";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 46 ---
+Question: How many Times have a Reaction Time larger than 0.17500000000000002, and a Lane of 3?
+Expected SQL: SELECT COUNT(time) FROM table_name_62 WHERE reaction_time > 0.17500000000000002 AND lane = 3
+Model Gen SQL: SELECT COUNT(time) FROM table_name_62 WHERE reaction_time > 0.17500000000000002 AND lane = 3;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 47 ---
+Question: What is the Places amount of the United States Ranking 8?
+Expected SQL: SELECT AVG(places) FROM table_name_71 WHERE nation = "united states" AND rank = 8
+Model Gen SQL: SELECT SUM(places) FROM table_name_71 WHERE nation = "united states" AND rank = 8;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 48 ---
+Question: What is the Location of the Event with a Time of 2:22.32?
+Expected SQL: SELECT location FROM table_name_93 WHERE time = "2:22.32"
+Model Gen SQL: SELECT location FROM table_name_93 WHERE time = "2:22.32";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 49 ---
+Question: Name the number of ratings for bruce forsyth
+Expected SQL: SELECT COUNT(ratings) FROM table_29135051_2 WHERE guest_s_ = "Bruce Forsyth"
+Model Gen SQL: SELECT COUNT(ratings) FROM table_29135051_2 WHERE guest_s_ = "Bruce Forsyth";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 50 ---
+Question: What is the goal Difference at Position 5?
+Expected SQL: SELECT difference FROM table_name_53 WHERE position = 5
+Model Gen SQL: SELECT difference FROM table_name_53 WHERE position = 5;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 51 ---
+Question: What is the maximum number of assists for players named Anastasia Kostaki?
+Expected SQL: SELECT MAX(assists) FROM table_24913533_4 WHERE player = "Anastasia Kostaki"
+Model Gen SQL: SELECT MAX(assists) FROM table_24913533_4 WHERE player = "Anastasia Kostaki";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 52 ---
+Question: What district has Ron Paul?
+Expected SQL: SELECT district FROM table_1341395_44 WHERE incumbent = "Ron Paul"
+Model Gen SQL: SELECT district FROM table_1341395_44 WHERE incumbent = "Ron Paul";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 53 ---
+Question: What is Outcome, when Score is 1-6, 3-6?
+Expected SQL: SELECT outcome FROM table_name_5 WHERE score = "1-6, 3-6"
+Model Gen SQL: SELECT outcome FROM table_name_5 WHERE score = "1-6" AND score = "3-6";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 54 ---
+Question: Name the record for june 7
+Expected SQL: SELECT record FROM table_17104539_9 WHERE date = "June 7"
+Model Gen SQL: SELECT record FROM table_17104539_9 WHERE date = "june 7";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 55 ---
+Question: What is the score of the game played on February 18?
+Expected SQL: SELECT score FROM table_name_59 WHERE date = "february 18"
+Model Gen SQL: SELECT score FROM table_name_59 WHERE date = "february 18";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 56 ---
+Question: What is the maximum specific impulse with a 4423 m/s effective exhaust velocity?
+Expected SQL: SELECT MAX(specific_impulse__s_) FROM table_15944_5 WHERE effective_exhaust_velocity__m_s_ = 4423
+Model Gen SQL: SELECT MAX(specific_impulse__s_) FROM table_15944_5 WHERE effective_exhaust_velocity__m_s_ = "4423";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 57 ---
+Question: What is the most noteworthy Bike No that has a Position bigger than 1, and a Points bigger than 369, and an Equipment of zabel-wsp?
+Expected SQL: SELECT MAX(bike_no) FROM table_name_77 WHERE position > 1 AND points > 369 AND equipment = "zabel-wsp"
+Model Gen SQL: SELECT MAX(bike_no) FROM table_name_77 WHERE position > 1 AND points > 369 AND equipment = "zabel-wsp";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 58 ---
+Question: Tell me the number range for 4vip
+Expected SQL: SELECT no_range FROM table_name_36 WHERE type = "4vip"
+Model Gen SQL: SELECT no_range FROM table_name_36 WHERE type = "4vip";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 59 ---
+Question: When the stamp duty reserve tax is 3,669 what is the percentage over gdp?
+Expected SQL: SELECT over_gdp__in__percentage_ FROM table_1618358_1 WHERE stamp_duty_reserve_tax = "3,669"
+Model Gen SQL: SELECT over_gdp__in__percentage_ FROM table_1618358_1 WHERE stamp_duty_reserve_tax = "3,669";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 60 ---
+Question: What is the freestyle leg for the Netherlands?
+Expected SQL: SELECT freestyle_leg FROM table_name_69 WHERE country = "netherlands"
+Model Gen SQL: SELECT freestyle_leg FROM table_name_69 WHERE country = "netherlands";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 61 ---
+Question: Which Attendance has a Tie number of 5?
+Expected SQL: SELECT attendance FROM table_name_63 WHERE tie_no = "5"
+Model Gen SQL: SELECT attendance FROM table_name_63 WHERE tie_no = 5;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 62 ---
+Question: What is the party when the candidates were ernest istook (r) 69% garland mcwatters (d) 28%?
+Expected SQL: SELECT party FROM table_1341423_36 WHERE candidates = "Ernest Istook (R) 69% Garland McWatters (D) 28%"
+Model Gen SQL: SELECT party FROM table_1341423_36 WHERE candidates = "Ernest Istook (R) 69% Garland McWatters (D) 28%";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 63 ---
+Question: Which player had a To par of +11?
+Expected SQL: SELECT player FROM table_name_55 WHERE to_par = "+11"
+Model Gen SQL: SELECT player FROM table_name_55 WHERE to_par = "+11";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 64 ---
+Question: What is the isotopic mass (u) when the nuclide is 89 y?
+Expected SQL: SELECT isotopic_mass___u__ FROM table_name_6 WHERE nuclide = "89 y"
+Model Gen SQL: SELECT isotopic_mass___u__ FROM table_name_6 WHERE nuclide = "89 Y";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 65 ---
+Question: How tall is player 42 from Long Beach State?
+Expected SQL: SELECT height_in_ft FROM table_name_69 WHERE no_s_ = "42" AND school_club_team_country = "long beach state"
+Model Gen SQL: SELECT height_in_ft FROM table_name_69 WHERE no_s_ = "42" AND school_club_team_country = "long beach state";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 66 ---
+Question: In what Round was the draft pick from Florida with an Overall less than 166?
+Expected SQL: SELECT AVG(round) FROM table_name_93 WHERE college = "florida" AND overall < 166
+Model Gen SQL: SELECT SUM(round) FROM table_name_93 WHERE college = "florida" AND overall < 166;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 67 ---
+Question: What is Hon. Vicente Q. Roxas appointment date?
+Expected SQL: SELECT date_of_appointment FROM table_name_25 WHERE name = "hon. vicente q. roxas"
+Model Gen SQL: SELECT date_of_appointment FROM table_name_25 WHERE name = "hon. vicente q. roxas";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 68 ---
+Question: How many wins does he have?
+Expected SQL: SELECT MAX(wins) FROM table_2169966_1
+Model Gen SQL: SELECT SUM(wins) FROM table_2169966_1;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 69 ---
+Question: Tournament of tokyo, japan, and a Score of 4–6, 6–4, 6–4 had which date attached?
+Expected SQL: SELECT date FROM table_name_91 WHERE tournament = "tokyo, japan" AND score = "4–6, 6–4, 6–4"
+Model Gen SQL: SELECT date FROM table_name_91 WHERE tournament = "tokyo, japan" AND score = "4–6, 6–4, 6–4";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 70 ---
+Question: what is the tournament when the score is 7-6(0), 6-3?
+Expected SQL: SELECT tournament FROM table_name_48 WHERE score = "7-6(0), 6-3"
+Model Gen SQL: SELECT tournament FROM table_name_48 WHERE score = "7-6(0), 6-3";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 71 ---
+Question: Who was the Class AA winner when Plains was Class A winner and Lubbock was Class AAAAA winner?
+Expected SQL: SELECT class_aA FROM table_14603057_2 WHERE class_a = "Plains" AND class_aAAAA = Lubbock
+Model Gen SQL: SELECT class_aA FROM table_14603057_2 WHERE class_a = "plains" AND class_aAAAA = "lubbock";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 72 ---
+Question: Name the Score which has a Partner of jorge lozano, an Outcome of runner-up, and Opponents in the final of udo riglewski michael stich?
+Expected SQL: SELECT score_in_the_final FROM table_name_85 WHERE partner = "jorge lozano" AND outcome = "runner-up" AND opponents_in_the_final = "udo riglewski michael stich"
+Model Gen SQL: SELECT score_in_the_final FROM table_name_85 WHERE partner = "jorge lozano" AND outcome = "runner-up" AND opponents_in_the_final = "udo riglewski michael stich";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 73 ---
+Question: Which film is rented at a fee of 0.99 and has less than 3 in the inventory? List the film title and id.
+Expected SQL: SELECT title, film_id FROM film WHERE rental_rate = 0.99 INTERSECT SELECT T1.title, T1.film_id FROM film AS T1 JOIN inventory AS T2 ON T1.film_id = T2.film_id GROUP BY T1.film_id HAVING COUNT(*) < 3
+Model Gen SQL: SELECT title, film_id FROM film WHERE rental_rate = "0.99" AND film_id IN (SELECT film_id FROM inventory WHERE quantity < 3);
+Status: ❌ SYNTAX ERROR
+  Error message: table film already exists
+
+--- Question 74 ---
+Question: What is the name of the incumbent for Glenn Nye?
+Expected SQL: SELECT incumbent FROM table_name_62 WHERE democratic = "glenn nye"
+Model Gen SQL: SELECT incumbent FROM table_name_62 WHERE democratic = "glenn nye";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 75 ---
+Question: Find the name, population and expected life length of asian country with the largest area?
+Expected SQL: SELECT Name, Population, LifeExpectancy FROM country WHERE Continent = "Asia" ORDER BY SurfaceArea DESC LIMIT 1
+Model Gen SQL: SELECT Name, Population, LifeExpectancy FROM country WHERE Continent = "Asian" AND SurfaceArea = "largest";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 76 ---
+Question: Who went to ohio state?
+Expected SQL: SELECT player FROM table_name_53 WHERE college = "ohio state"
+Model Gen SQL: SELECT player FROM table_name_53 WHERE college = "ohio state";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 77 ---
+Question: What is the total amount of Top-25 having a Top-5 greater than 1?
+Expected SQL: SELECT COUNT(top_25) FROM table_name_92 WHERE top_5 > 1
+Model Gen SQL: SELECT COUNT(top_25) FROM table_name_92 WHERE top_5 > 1;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 78 ---
+Question: what is the earliest year when the result is won and the role/episode is fox mulder?
+Expected SQL: SELECT MIN(year) FROM table_name_21 WHERE result = "won" AND role_episode = "fox mulder"
+Model Gen SQL: SELECT MIN(year) FROM table_name_21 WHERE result = "won" AND role_episode = "fox mulder";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 79 ---
+Question: What is the number of students in Fall 09 from the state that had 3940 in Fall 07?
+Expected SQL: SELECT MAX(fall_09) FROM table_15055594_6 WHERE fall_07 = 3940
+Model Gen SQL: SELECT SUM(fall_09) FROM table_15055594_6 WHERE fall_07 = 3940;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 80 ---
+Question: Who's the player eliminated on episode 5?
+Expected SQL: SELECT player FROM table_name_50 WHERE eliminated = "episode 5"
+Model Gen SQL: SELECT player FROM table_name_50 WHERE eliminated = "episode 5";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 81 ---
+Question: What are the first name and last name of the professionals who have done treatment with cost below average?
+Expected SQL: SELECT DISTINCT T1.first_name, T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments)
+Model Gen SQL: SELECT T1.first_name, T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.Id = T2.Id WHERE T2.cost_of_treatment < (SELECT AVG(cost_of_treatment) FROM Treatments);
+Status: ❌ SYNTAX ERROR
+  Error message: table Treatments already exists
+
+--- Question 82 ---
+Question: What is the nationality of player Jani Hakanpaa?
+Expected SQL: SELECT nationality FROM table_name_65 WHERE player = "jani hakanpaa"
+Model Gen SQL: SELECT nationality FROM table_name_65 WHERE player = "jani hakanpaa";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 83 ---
+Question: What country does jocelyne bourassa play for?
+Expected SQL: SELECT country FROM table_name_73 WHERE champion = "jocelyne bourassa"
+Model Gen SQL: SELECT country FROM table_name_73 WHERE champion = "jocelyne bourassa";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 84 ---
+Question: What is the lowest score that has alastair forsyth as the player?
+Expected SQL: SELECT MIN(score) FROM table_name_28 WHERE player = "alastair forsyth"
+Model Gen SQL: SELECT MIN(score) FROM table_name_28 WHERE player = "alastair forsyth";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 85 ---
+Question: How many kids stay in the room DAMIEN TRACHSEL checked in on Sep 21, 2010?
+Expected SQL: SELECT Kids FROM Reservations WHERE CheckIn = "2010-09-21" AND FirstName = "DAMIEN" AND LastName = "TRACHSEL"
+Model Gen SQL: SELECT COUNT(Kids) FROM Reservations WHERE CheckIn = "sep 21, 2010" AND LastName = "damiien trachsel";
+Status: ❌ MISMATCH
+  Expected Data: []
+  Got Data: [(0,)]
+
+--- Question 86 ---
+Question: Which player is from Utah?
+Expected SQL: SELECT player FROM table_11677691_7 WHERE college = "Utah"
+Model Gen SQL: SELECT player FROM table_11677691_7 WHERE college = "Utah";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 87 ---
+Question: How many people attended the Rams game against the Kansas City Chiefs?
+Expected SQL: SELECT attendance FROM table_name_86 WHERE opponent = "kansas city chiefs"
+Model Gen SQL: SELECT COUNT(attendance) FROM table_name_86 WHERE opponent = "kansas city chiefs";
+Status: ❌ MISMATCH
+  Expected Data: []
+  Got Data: [(0,)]
+
+--- Question 88 ---
+Question: What is the Away team at the game with a Score of 4 – 2?
+Expected SQL: SELECT away_team FROM table_name_29 WHERE score = "4 – 2"
+Model Gen SQL: SELECT away_team FROM table_name_29 WHERE score = "4 – 2";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 89 ---
+Question: When 80 is the tries for what is the try bonus?
+Expected SQL: SELECT try_bonus FROM table_17941032_1 WHERE tries_for = "80"
+Model Gen SQL: SELECT try_bonus FROM table_17941032_1 WHERE tries_for = 80;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 90 ---
+Question: What was the record at the game against the Blue Jays with a loss of Batista (0–3)?
+Expected SQL: SELECT record FROM table_name_22 WHERE opponent = "blue jays" AND loss = "batista (0–3)"
+Model Gen SQL: SELECT record FROM table_name_22 WHERE opponent = "blue jays" AND loss = "batista (0–3)";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 91 ---
+Question: Which country had a premiere on July 24, 2010?
+Expected SQL: SELECT country FROM table_name_65 WHERE premiere = "july 24, 2010"
+Model Gen SQL: SELECT country FROM table_name_65 WHERE premiere = "july 24, 2010";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 92 ---
+Question: When playing on grass who was the opponents in a year greater than 1993, and playing with Jonas Björkman?
+Expected SQL: SELECT opponents FROM table_name_10 WHERE surface = "grass" AND year > 1993 AND partner = "jonas björkman"
+Model Gen SQL: SELECT opponents FROM table_name_10 WHERE surface = "grass" AND year > 1993 AND partner = "jonas björkman";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 93 ---
+Question: What is the League with a Year that is 1990/91?
+Expected SQL: SELECT league FROM table_name_64 WHERE year = "1990/91"
+Model Gen SQL: SELECT league FROM table_name_64 WHERE year = "1990/91";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 94 ---
+Question: What round had a record of 4-1?
+Expected SQL: SELECT round FROM table_name_17 WHERE record = "4-1"
+Model Gen SQL: SELECT round FROM table_name_17 WHERE record = "4-1";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 95 ---
+Question: Who is the team captain of the team that Lübzer is the shirt sponsor for?
+Expected SQL: SELECT team AS captain FROM table_name_88 WHERE shirt_sponsor = "lübzer"
+Model Gen SQL: SELECT team FROM table_name_88 WHERE shirt_sponsor = "lübzer";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 96 ---
+Question: I want to know the crowd with a home team of carlton
+Expected SQL: SELECT SUM(crowd) FROM table_name_46 WHERE home_team = "carlton"
+Model Gen SQL: SELECT MAX(crowd) FROM table_name_46 WHERE home_team = "carlton";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 97 ---
+Question: In what year was the average speed 92.68?
+Expected SQL: SELECT year FROM table_2268216_1 WHERE average_speed__mph_ = "92.68"
+Model Gen SQL: SELECT year FROM table_2268216_1 WHERE average_speed__mph_ = "92.68";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 98 ---
+Question: Where was the home court on April 14?
+Expected SQL: SELECT home FROM table_name_34 WHERE date = "april 14"
+Model Gen SQL: SELECT home FROM table_name_34 WHERE date = "april 14";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 99 ---
+Question: When the home team north melbourne was playing what did they score?
+Expected SQL: SELECT home_team AS score FROM table_name_78 WHERE home_team = "north melbourne"
+Model Gen SQL: SELECT home_team AS score FROM table_name_78 WHERE home_team = "north melbourne";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 100 ---
+Question: what is the original air date for julie warner?
+Expected SQL: SELECT original_air_date FROM table_26561498_1 WHERE patient_portrayer = "Julie Warner"
+Model Gen SQL: SELECT original_air_date FROM table_26561498_1 WHERE patient_portrayer = "Julie Warner";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 101 ---
+Question: Name the result for 1980s
+Expected SQL: SELECT result FROM table_19508635_1 WHERE theme = "1980s"
+Model Gen SQL: SELECT result FROM table_19508635_1 WHERE theme = "1980s";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 102 ---
+Question: Who is the opponent on November 14?
+Expected SQL: SELECT opponent FROM table_name_53 WHERE date = "november 14"
+Model Gen SQL: SELECT opponent FROM table_name_53 WHERE date = "november 14";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 103 ---
+Question: What is the average goal difference with 51 goals scored against and less than 17 losses?
+Expected SQL: SELECT AVG(goal_difference) FROM table_name_4 WHERE goals_against = 51 AND losses < 17
+Model Gen SQL: SELECT AVG(goal_difference) FROM table_name_4 WHERE goals_against = 51 AND losses < 17;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 104 ---
+Question: What is the average of all the years when the notes are “electronics brand?”
+Expected SQL: SELECT AVG(year) FROM table_name_36 WHERE notes = "electronics brand"
+Model Gen SQL: SELECT AVG(year) FROM table_name_36 WHERE notes = "electronics brand";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 105 ---
+Question: What is the highest total medals a team with less than 15 gold, less than 5 bronze, and a rank larger than 10 has?
+Expected SQL: SELECT MAX(total) FROM table_name_96 WHERE gold < 15 AND bronze < 5 AND rank > 10
+Model Gen SQL: SELECT MAX(total) FROM table_name_96 WHERE gold < 15 AND bronze < 5 AND rank > 10;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 106 ---
+Question: What is the A-side for it Never Entered My Mind, Part 2?
+Expected SQL: SELECT a_side FROM table_name_75 WHERE b_side = "it never entered my mind, part 2"
+Model Gen SQL: SELECT a_side FROM table_name_75 WHERE b_side = "it never entered my mind, part 2";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 107 ---
+Question: What's the lowest avg/g for a GP-GS of 12-12 and a gain less than 16?
+Expected SQL: SELECT MIN(avg_g) FROM table_name_10 WHERE gp_gs = "12-12" AND gain < 16
+Model Gen SQL: SELECT MIN(avg_g) FROM table_name_10 WHERE gp_gs = "12-12" AND gain < 16;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 108 ---
+Question: Which Date has a Result of 2–2, and a Venue of H?
+Expected SQL: SELECT date FROM table_name_3 WHERE result = "2–2" AND venue = "h"
+Model Gen SQL: SELECT date FROM table_name_3 WHERE result = "2–2" AND venue = "h";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 109 ---
+Question: What are the scores for games played on september 9?
+Expected SQL: SELECT score FROM table_17104539_12 WHERE date = "September 9"
+Model Gen SQL: SELECT score FROM table_17104539_12 WHERE date = "september 9";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 110 ---
+Question: Tell me the average final rank for loe more than 10 and point less than 43
+Expected SQL: SELECT AVG(final_rank) FROM table_name_8 WHERE lose > 10 AND point < 43
+Model Gen SQL: SELECT AVG(final_rank) FROM table_name_8 WHERE lose > 10 AND point < 43;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 111 ---
+Question: What team has a high score with tracy mcgrady (24)?
+Expected SQL: SELECT team FROM table_name_70 WHERE high_points = "tracy mcgrady (24)"
+Model Gen SQL: SELECT team FROM table_name_70 WHERE high_points = "Tracy Mcgrady (24)";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 112 ---
+Question: What is the home team of the April 14 game?
+Expected SQL: SELECT home FROM table_name_27 WHERE date = "april 14"
+Model Gen SQL: SELECT home FROM table_name_27 WHERE date = "april 14";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 113 ---
+Question: Name the most draws when goals against is more than 56 and wins is more than 14
+Expected SQL: SELECT MAX(draws) FROM table_name_89 WHERE goals_against > 56 AND wins > 14
+Model Gen SQL: SELECT MAX(draws) FROM table_name_89 WHERE goals_against > 56 AND wins > 14;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 114 ---
+Question: Which City has a State of massachusetts, and a School of northeastern university?
+Expected SQL: SELECT city FROM table_name_59 WHERE state = "massachusetts" AND school = "northeastern university"
+Model Gen SQL: SELECT city FROM table_name_59 WHERE state = "massachusetts" AND school = "northeastern university";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 115 ---
+Question: What was the result for Pennsylvania 8?
+Expected SQL: SELECT result FROM table_2668401_12 WHERE district = "Pennsylvania 8"
+Model Gen SQL: SELECT result FROM table_2668401_12 WHERE district = "Pennsylvania 8";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 116 ---
+Question: Who is the music by for episode the Elbow Room?
+Expected SQL: SELECT music_by FROM table_191105_4 WHERE episode_title = "Elbow Room"
+Model Gen SQL: SELECT music_by FROM table_191105_4 WHERE episode_title = "The Elbow Room";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 117 ---
+Question: In which division were the IceGators when coached by Todd Gordon?
+Expected SQL: SELECT division FROM table_name_24 WHERE coach = "todd gordon"
+Model Gen SQL: SELECT division FROM table_name_24 WHERE coach = "todd gordon";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 118 ---
+Question: Which route has a terminus of pine Forest?
+Expected SQL: SELECT name FROM table_name_57 WHERE terminus = "pine forest"
+Model Gen SQL: SELECT name FROM table_name_57 WHERE terminus = "pine forest";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 119 ---
+Question: With a To par of –5, what is Nick Faldo's Place?
+Expected SQL: SELECT place FROM table_name_95 WHERE to_par = "–5" AND player = "nick faldo"
+Model Gen SQL: SELECT place FROM table_name_95 WHERE to_par = "–5" AND player = "nick faldo";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 120 ---
+Question: Which Week has a TV Time of cbs 1:00pm, and an Attendance of 72,714?
+Expected SQL: SELECT week FROM table_name_44 WHERE tv_time = "cbs 1:00pm" AND attendance = "72,714"
+Model Gen SQL: SELECT week FROM table_name_44 WHERE tv_time = "cbs 1:00pm" AND attendance = "72,714";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 121 ---
+Question: What Title is listed for the Year of 1999?
+Expected SQL: SELECT title FROM table_name_63 WHERE year = 1999
+Model Gen SQL: SELECT title FROM table_name_63 WHERE year = 1999;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 122 ---
+Question: Name the matches for gold coast
+Expected SQL: SELECT matches FROM table_name_11 WHERE team = "gold coast"
+Model Gen SQL: SELECT matches FROM table_name_11 WHERE team = "gold coast";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 123 ---
+Question: What is the name where the delivered date is 1839/08?
+Expected SQL: SELECT name FROM table_name_22 WHERE delivered = "1839/08"
+Model Gen SQL: SELECT name FROM table_name_22 WHERE delivered = "1839/08";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 124 ---
+Question: Who in series 5 corresponds to Deborah Meaden in series 3?
+Expected SQL: SELECT series_5 FROM table_name_57 WHERE series_3 = "deborah meaden"
+Model Gen SQL: SELECT series_5 FROM table_name_57 WHERE series_3 = "deborah meaden";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 125 ---
+Question: What day is essendon the home team?
+Expected SQL: SELECT date FROM table_name_69 WHERE home_team = "essendon"
+Model Gen SQL: SELECT date FROM table_name_69 WHERE home_team = "essendon";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 126 ---
+Question: tell me the average roll for the featherston area and integrated authority.
+Expected SQL: SELECT AVG(roll) FROM table_name_48 WHERE area = "featherston" AND authority = "integrated"
+Model Gen SQL: SELECT AVG(roll) FROM table_name_48 WHERE area = "featherston" AND authority = "integrated";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 127 ---
+Question: WHAT IS THE WORLDWIDE BOX OFFICE FOR BRAVE?
+Expected SQL: SELECT worldwide FROM table_name_41 WHERE film = "brave"
+Model Gen SQL: SELECT worldwide FROM table_name_41 WHERE film = "brave";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 128 ---
+Question: Which Opponent has a Record of 2–0?
+Expected SQL: SELECT opponent FROM table_name_80 WHERE record = "2–0"
+Model Gen SQL: SELECT opponent FROM table_name_80 WHERE record = "2–0";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 129 ---
+Question: What was the domestic box office for "House on Haunted Hill"?
+Expected SQL: SELECT domestic_box_office FROM table_2203760_4 WHERE film = "House on Haunted Hill"
+Model Gen SQL: SELECT domestic_box_office FROM table_2203760_4 WHERE film = "House on Haunted Hill";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 130 ---
+Question: What years did Tom Lehman win?
+Expected SQL: SELECT year_s__won FROM table_name_25 WHERE player = "tom lehman"
+Model Gen SQL: SELECT year_s__won FROM table_name_25 WHERE player = "Tom Lehman";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 131 ---
+Question: What is the event where the opponent was Chris Barden?
+Expected SQL: SELECT event FROM table_name_12 WHERE opponent = "chris barden"
+Model Gen SQL: SELECT event FROM table_name_12 WHERE opponent = "chris barden";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 132 ---
+Question: When 1546 is inns of court and chancery what is the finsbury division?
+Expected SQL: SELECT finsbury_division FROM table_16677738_1 WHERE inns_of_court_and_chancery = 1546
+Model Gen SQL: SELECT finsbury_division FROM table_16677738_1 WHERE inns_of_court_and_chancery = 1546;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 133 ---
+Question: Which Total has Gold of 2?
+Expected SQL: SELECT MAX(total) FROM table_name_60 WHERE gold = 2
+Model Gen SQL: SELECT MAX(total) FROM table_name_60 WHERE gold = 2;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 134 ---
+Question: What is the highest rank from the year greater than 2010 with 430 main span metres?
+Expected SQL: SELECT MAX(rank) FROM table_name_69 WHERE year_opened > 2010 AND main_span_metres = "430"
+Model Gen SQL: SELECT MAX(rank) FROM table_name_69 WHERE year_opened > 2010 AND main_span_metres = "430";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 135 ---
+Question: What was the F/Laps when the Wins were 0 and the Position was 4th?
+Expected SQL: SELECT f_laps FROM table_name_97 WHERE wins = "0" AND position = "4th"
+Model Gen SQL: SELECT f_laps FROM table_name_97 WHERE wins = 0 AND position = "4th";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 136 ---
+Question: Show all allergies and their types.
+Expected SQL: SELECT allergy, allergytype FROM Allergy_type
+Model Gen SQL: SELECT allergy, allergytype FROM Allergy_type;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 137 ---
+Question: What is the part 4 when part 1 is "lesan"?
+Expected SQL: SELECT part_4 FROM table_1745843_8 WHERE part_1 = "lesan"
+Model Gen SQL: SELECT part_4 FROM table_1745843_8 WHERE part_1 = "lesan";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 138 ---
+Question: Name the total number of start when finish is less than 4
+Expected SQL: SELECT COUNT(start) FROM table_name_21 WHERE finish < 4
+Model Gen SQL: SELECT COUNT(start) FROM table_name_21 WHERE finish < 4;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 139 ---
+Question: How many yards per attempt were there when total yards were 513?
+Expected SQL: SELECT yards_per_attempt FROM table_19517448_3 WHERE total_yards = "513"
+Model Gen SQL: SELECT yards_per_attempt FROM table_19517448_3 WHERE total_yards = 513;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 140 ---
+Question: What is Ship, when Commissioned is "13 March 1982"?
+Expected SQL: SELECT ship FROM table_name_54 WHERE commissioned = "13 march 1982"
+Model Gen SQL: SELECT ship FROM table_name_54 WHERE commissioned = "13 march 1982";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 141 ---
+Question: Tell me the score for 9 may 2001
+Expected SQL: SELECT score FROM table_name_15 WHERE date = "9 may 2001"
+Model Gen SQL: SELECT score FROM table_name_15 WHERE date = "9 may 2001";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 142 ---
+Question: Name the record that has a stream of l1 and score of l 95–111
+Expected SQL: SELECT record FROM table_name_45 WHERE streak = "l1" AND score = "l 95–111"
+Model Gen SQL: SELECT record FROM table_name_45 WHERE streak = "l1" AND score = "l 95–111";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 143 ---
+Question: What was the original title for the film used in nomination of street days?
+Expected SQL: SELECT original_title FROM table_name_91 WHERE film_title_used_in_nomination = "street days"
+Model Gen SQL: SELECT original_title FROM table_name_91 WHERE film_title_used_in_nomination = "Street Days";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 144 ---
+Question: What is the result for director Said Elmarouk before 2008?
+Expected SQL: SELECT result FROM table_name_2 WHERE director = "said elmarouk" AND year < 2008
+Model Gen SQL: SELECT result FROM table_name_2 WHERE director = "said elmarouk" AND year < 2008;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 145 ---
+Question: How many episodes have a duration of 3?
+Expected SQL: SELECT COUNT(episodes) FROM table_name_35 WHERE duration = "3"
+Model Gen SQL: SELECT COUNT(episodes) FROM table_name_35 WHERE duration = "3";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 146 ---
+Question: Which Year has a Match of 63?
+Expected SQL: SELECT year FROM table_name_82 WHERE match = 63
+Model Gen SQL: SELECT year FROM table_name_82 WHERE match = 63;
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 147 ---
+Question: What Team has Bob Wollek as a Driver with 76 Laps in C1 Class?
+Expected SQL: SELECT team FROM table_name_63 WHERE class = "c1" AND laps = 76 AND driver = "bob wollek"
+Model Gen SQL: SELECT team FROM table_name_63 WHERE driver = "bob wollek" AND laps = 76 AND class = "c1";
+Status: ✅ MATCH (Rows: 0)
+
+--- Question 148 ---
+Question: How many games did team iurbentia bilbao have with rebounds higher than 212?
+Expected SQL: SELECT SUM(games) FROM table_name_27 WHERE team = "iurbentia bilbao" AND rebounds > 212
+Model Gen SQL: SELECT SUM(games) FROM table_name_27 WHERE team = "iurbentia bilbao" AND rebounds > 212;
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 149 ---
+Question: What is the total grid number that has 14 laps and a time of +29.483?
+Expected SQL: SELECT COUNT(grid) FROM table_name_6 WHERE laps = 14 AND time = "+29.483"
+Model Gen SQL: SELECT COUNT(grid) FROM table_name_6 WHERE laps = "14" AND time = "+29.483";
+Status: ✅ MATCH (Rows: 1)
+
+--- Question 150 ---
+Question: What is the average number of people injured by all perpetrators?
+Expected SQL: SELECT AVG(Injured) FROM perpetrator
+Model Gen SQL: SELECT AVG(Injured) FROM perpetrator;
+Status: ✅ MATCH (Rows: 1)

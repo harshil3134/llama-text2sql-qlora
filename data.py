@@ -14,6 +14,8 @@ train_samples=ds.select(range(1000))
 
 valid_samples=ds.select(range(1000,1150))
 
+test_data=ds.select(range(1150,1300))
+
 def format_row(row):
     """Format into standard structure."""
     system_prompt=(
@@ -43,6 +45,10 @@ with open("./data/train.jsonl","w",encoding="utf-8") as f:
 
 with open("./data/valid.jsonl","w",encoding="utf-8") as f:
     for row in valid_samples:
+        f.write(json.dumps(format_row(row)) + "\n")
+
+with open("./data/test.jsonl","w",encoding="utf-8") as f:
+    for row in test_data:
         f.write(json.dumps(format_row(row)) + "\n")
 
 print("Done! data ready in ./data/")
