@@ -6,3 +6,6 @@ __pycache__/
 .DS_Store
 .env
 .mlx_cache/
+
+plan/1.md
+project.md
