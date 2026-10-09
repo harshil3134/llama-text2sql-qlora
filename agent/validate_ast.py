@@ -23,7 +23,7 @@ def validate_ast(state:AgentState)-> AgentState:
             exp.Alter,
             exp.Insert,
             exp.Create,
-            exp.Truncate,
+            exp.Command,
         ]
             
         for forbidden in forbidden_types:
