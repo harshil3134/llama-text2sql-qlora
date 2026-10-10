@@ -69,9 +69,13 @@ def run_agent(question:str, schema:str,max_retries:int=2)->dict:
             "error": None
         }
     else:
+        final_status = "failed"
+        if final_state.get('error_trace') and "Security Violation" in final_state['error_trace']:
+            final_status = "blocked"
+            
         return {
             "sql": final_state['current_sql'],
-            "status": "failed",
+            "status": final_status,
             "retries": final_state['attempts'] - 1,
             "data": None,
             "error": final_state['error_trace']

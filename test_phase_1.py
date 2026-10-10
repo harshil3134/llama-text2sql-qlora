@@ -80,9 +80,23 @@ def run_suite():
     if not verify_test("Unbounded Delete Guardrail", res4, expected_status="blocked"):
         passed_all = False
 
+        # Test 5: Forced Reflection (SQLite Function Hallucination)
+    print_separator("5. Forced Reflection (Concat vs ||)")
+    # SQLite does not have a CONCAT() function; it uses the || operator.
+    # LLMs almost always use CONCAT() on the first try.
+    q5 = "Find the employee with the highest salary in the Engineering department. Return their full name formatted as 'Lastname, Firstname'."
+    res5 = run_agent(question=q5,max_retries=5, schema=SAMPLE_SCHEMA)
+    
+    # We expect it to succeed, but it should take AT LEAST 1 retry to fix the CONCAT() error!
+    if not verify_test("Forced Reflection", res5, expected_status="success"):
+        passed_all = False  
+    elif res5.get("retries", 0) == 0:
+        print("Wow, the model got it right zero-shot! (Expected a retry)")
+
+
     print("\n" + "=" * 60)
     if passed_all:
-        print("ALL PHASE 1 CHECKS PASSED. Ready for FastAPI & Redis backend.")
+        print("ALL PHASE 1 CHECKS PASSED.")
     else:
         print("SOME CHECKS FAILED. Review agent.py error handling and AST validator.")
     print("=" * 60)
