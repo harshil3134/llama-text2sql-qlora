@@ -1,4 +1,8 @@
-
+"""
+TEST: Simple Run
+PURPOSE: A quick sanity check to run the LangGraph agent exactly once. 
+Use this to quickly test if the agent.py logic is working without running a full suite.
+"""
 
 def __main__():
     from agent.graph import run_agent

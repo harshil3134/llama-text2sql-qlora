@@ -1,3 +1,8 @@
+"""
+TEST: Model Benchmark Suite
+PURPOSE: The ultimate test for model accuracy. Evaluates your Base model vs your Fine-Tuned model on 150 test queries.
+It measures valid syntax % and execution accuracy %, and then generates a comparison chart (benchmark_results.png).
+"""
 import json
 import sqlite3
 import re

@@ -5,7 +5,7 @@ from api.cache import redis_client, set_cached_query
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from test_phase_1 import run_agent
+from agent.graph import run_agent
 
 async def process_sql_job(ctx, task_id: str, question: str, schema_ddl: str, cache_key: str):
     """ The background worker function that runs the MLX LangGraph LLM """
@@ -22,7 +22,7 @@ async def process_sql_job(ctx, task_id: str, question: str, schema_ddl: str, cac
 
         result_payload = {
             "status": "completed",
-            "sql": result.get("current_sql", ""),
+            "sql": result.get("sql", ""),
             "data": json.dumps(result.get("data", [])),
             "retries": retries,
             "error": ""
@@ -39,7 +39,9 @@ async def process_sql_job(ctx, task_id: str, question: str, schema_ddl: str, cac
         await redis_client.hset(f"task:{task_id}", mapping={"status": "failed", "error": str(e)})
         raise e
 
+from arq.connections import RedisSettings
+
 class WorkerSettings:
     functions = [process_sql_job]
-    redis_settings = "redis://localhost:6379"
+    redis_settings = RedisSettings()
     max_jobs = 1  # CRITICAL: Only 1 job at a time

@@ -1,3 +1,8 @@
+"""
+TEST: Agent Core & Guardrails (Phase 1)
+PURPOSE: Tests the LangGraph workflow rules. It proves that the AST Validator blocks malicious queries (like DROP TABLE), 
+and that the reflection loop successfully fixes broken SQL (like SQLite syntax errors).
+"""
 import sys
 import json
 import sqlite3
