@@ -36,7 +36,7 @@ workflow.add_conditional_edges("execute_node",should_continue)
 
 app=workflow.compile()
 
-def run_agent(question:str, schema:str,max_retries:int=2)->dict:
+def run_agent(question:str, schema:str, max_retries:int=2, on_step=None)->dict:
     """This is the clean function you can import into your streamlit ui or fastapi server"""
 
     initial_state={
@@ -51,7 +51,50 @@ def run_agent(question:str, schema:str,max_retries:int=2)->dict:
     }
 
     print("starting agent...\n")
-    final_state=app.invoke(initial_state)
+    if on_step:
+        on_step("started", {"message": "Starting SQL agent workflow..."})
+
+    final_state = initial_state
+    for step in app.stream(initial_state):
+        if "generate_node" in step:
+            final_state = step["generate_node"]
+            if on_step:
+                on_step("generated_sql", {
+                    "message": f"Drafted SQL query (Attempt {final_state['attempts']})",
+                    "sql": final_state.get("current_sql", ""),
+                    "attempt": final_state.get("attempts", 1)
+                })
+        elif "validate_node" in step:
+            final_state = step["validate_node"]
+            if on_step:
+                if final_state.get("error_trace"):
+                    on_step("validation_error", {
+                        "message": f"AST Validation issue: {final_state['error_trace']}",
+                        "error": final_state['error_trace']
+                    })
+                else:
+                    on_step("validation_passed", {
+                        "message": "AST Validation passed: Valid SELECT syntax verified."
+                    })
+        elif "execute_node" in step:
+            final_state = step["execute_node"]
+            if on_step:
+                if final_state.get("status") == "executed":
+                    count = len(final_state.get("result") or [])
+                    on_step("execution_success", {
+                        "message": f"Sandbox query executed successfully ({count} rows returned).",
+                        "rows_count": count
+                    })
+                elif final_state.get("status") == "reflection_required":
+                    on_step("reflection_triggered", {
+                        "message": f"Execution error: {final_state.get('error_trace')}. Initiating self-correction...",
+                        "error": final_state.get("error_trace")
+                    })
+                else:
+                    on_step("execution_failed", {
+                        "message": f"Execution failed: {final_state.get('error_trace')}",
+                        "error": final_state.get("error_trace")
+                    })
 
     print("\n==== SUMMARY ===")
     print(f"SQL Used: {final_state['current_sql']}")
@@ -64,7 +107,7 @@ def run_agent(question:str, schema:str,max_retries:int=2)->dict:
         return {
             "sql": final_state['current_sql'],
             "status": "success",
-            "retries": final_state['attempts'] - 1,
+            "retries": max(0, final_state['attempts'] - 1),
             "data": final_state['result'],
             "error": None
         }
@@ -76,7 +119,7 @@ def run_agent(question:str, schema:str,max_retries:int=2)->dict:
         return {
             "sql": final_state['current_sql'],
             "status": final_status,
-            "retries": final_state['attempts'] - 1,
+            "retries": max(0, final_state['attempts'] - 1),
             "data": None,
             "error": final_state['error_trace']
         }
