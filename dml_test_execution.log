@@ -1,0 +1,1070 @@
+DML BENCHMARK EXECUTION LOG
+============================================================
+
+============================================================
+ EVALUATING: Base Model  (100 samples)
+============================================================
+
+[001] OK UPDATE
+  Q:  Update the job title of an existing employee in the "employees" table
+  GT: UPDATE employees SET job_title = 'Senior Software Engineer' WHERE id = 101;
+  ->  UPDATE employees 
+SET job_title = 'Software Engineer' 
+WHERE id = 1;
+
+[002] OK DELETE
+  Q:  Delete records of clients who are not part of any socially responsible investment programs from the clients table.
+  GT: DELETE FROM clients WHERE client_id IN (SELECT client_id FROM clients c1 WHERE program NOT IN (SELECT program FROM socially_responsible_investment_programs) GROUP BY client_id HAVING COUNT(*) = (SELECT COUNT(*) FROM clients c2 WHERE c1.client_id = c2.client_id));
+  ->  DELETE FROM clients 
+WHERE client_id NOT IN (SELECT client_id FROM clients WHERE program IN (SELECT program FROM socially_responsible_investment_programs));
+
+[003] OK DELETE
+  Q:  Delete any records in the 'Melting_Icecaps' table where the ice cap has completely melted before 2020.
+  GT: DELETE FROM Melting_Icecaps WHERE icecap_name IN (SELECT icecap_name FROM Melting_Icecaps WHERE melt_date < '2020-01-01');
+  ->  DELETE FROM Melting_Icecaps WHERE melt_date < '2020-01-01';
+
+[004] OK UPDATE
+  Q:  Update the "score" for the "Amazon" record in the "social_impact_scores" table to 80 for the year 2021
+  GT: UPDATE social_impact_scores SET score = 80 WHERE company = 'Amazon' AND year = 2021;
+  ->  UPDATE social_impact_scores SET score = 80 WHERE company = 'Amazon' AND year = 2021;
+
+[005] OK DELETE
+  Q:  Delete health equity metrics for Arizona in 2019
+  GT: DELETE FROM health_equity_metrics WHERE state = 'AZ' AND year = 2019;
+  ->  DELETE FROM health_equity_metrics WHERE state = 'AZ' AND year = 2019;
+
+[006] OK UPDATE
+  Q:  Replace all instances of the instructor 'Dr. Maria Fernandes' with 'Dr. Maria Rodriguez'.
+  GT: UPDATE course_instructor SET instructor_name = 'Dr. Maria Rodriguez' WHERE instructor_name = 'Dr. Maria Fernandes';
+  ->  UPDATE course_instructor 
+SET instructor_name = 'Dr. Maria Rodriguez' 
+WHERE instructor_name = 'Dr. Maria Fernandes';
+
+[007] OK UPDATE
+  Q:  Update the 'process_type' column to 'Continuous' for the bioprocess with 'name' = 'Fermentation 1'
+  GT: UPDATE bioprocesses SET process_type = 'Continuous' WHERE name = 'Fermentation 1';
+  ->  UPDATE bioprocesses 
+SET process_type = 'Continuous' 
+WHERE name = 'Fermentation 1';
+
+[008] OK UPDATE
+  Q:  Update the contract value for all contracts with country A in the contract_negotiations table to be 6 million dollars
+  GT: UPDATE contract_negotiations SET contract_value = 6000000 WHERE country = 'Country A';
+  ->  UPDATE contract_negotiations SET contract_value = 6000000 WHERE country = 'Country A';
+
+[009] OK INSERT
+  Q:  Insert a new record into the research_vessels table for a vessel operating in the Atlantic Ocean
+  GT: INSERT INTO research_vessels (id, name, type, length, max_depth_meters, region) VALUES (31, 'Ocean Explorer', 'Research Vessel', 80.5, 4000, 'Atlantic Ocean');
+  ->  INSERT INTO research_vessels (id, name, type, length, max_depth_meters, region) 
+VALUES (1, 'RV Discovery', 'Research Ship', 80.0, 6000, 'Atlantic Ocean');
+
+[010] OK INSERT
+  Q:  Insert new records into the 'machines' table with the following data: (4, 'Machine 4', 'Brazil')
+  GT: INSERT INTO machines (id, name, manufacturing_country) VALUES (4, 'Machine 4', 'Brazil');
+  ->  INSERT INTO machines (id, name, manufacturing_country) VALUES (4, 'Machine 4', 'Brazil');
+
+[011] OK INSERT
+  Q:  Insert a new record in the field_temperature table for field 4 with a temperature of 25 degrees and a measurement date o
+  GT: INSERT INTO field_temperature (field_id, temperature, measurement_date) VALUES (4, 25.0, '2023-03-01');
+  ->  INSERT INTO field_temperature (field_id, temperature, measurement_date) 
+VALUES (4, 25.00, '2023-03-01');
+
+[012] OK UPDATE
+  Q:  Update the species count for the 'Great Barrier Reef' marine protected area.
+  GT: UPDATE marine_protected_areas SET species_count = 1600 WHERE name = 'Great Barrier Reef';
+  ->  UPDATE marine_protected_areas SET species_count = 1600 WHERE name = 'Great Barrier Reef';
+
+[013] OK INSERT
+  Q:  Add new environmental impact statistics to the environmental_impact_stats table for 2021: CO2_emission = 1500, water_con
+  GT: INSERT INTO environmental_impact_stats (id, year, CO2_emission, water_consumption, waste_generation) VALUES (6, 2021, 1500, 30000, 2500);
+  ->  INSERT INTO environmental_impact_stats (year, CO2_emission, water_consumption, waste_generation) VALUES (2021, 1500, 30000, 2500);
+
+[014] OK DELETE
+  Q:  Delete 'games' records where the 'score' is below 0
+  GT: DELETE FROM games WHERE score < 0;
+  ->  DELETE FROM games WHERE score < 0;
+
+[015] OK INSERT
+  Q:  Insert new records for the TV shows released in 2022 with a rating above 8
+  GT: INSERT INTO tv_shows (title, genre, budget, release_year, rating) VALUES ('Show4', 'Comedy', 10000000, 2022, 8.5), ('Show5', 'Drama', 12000000, 2022, 9), ('Show6', 'Action', 15000000, 2022, 8.2);
+  ->  INSERT INTO tv_shows (title, genre, budget, release_year, rating) 
+VALUES 
+('Show1', 'Drama', 10000000, 2022, 9),
+('Show2', 'Comedy', 5000000, 2022, 8.5),
+('Show3', 'Thriller', 8000000, 2022, 9.2);
+
+[016] OK DELETE
+  Q:  Delete the volunteer with VolunteerID of 3
+  GT: DELETE FROM Volunteers WHERE VolunteerID = 3;
+  ->  DELETE FROM Volunteers WHERE VolunteerID = 3;
+
+[017] OK UPDATE
+  Q:  Update the financial wellbeing score for client with ID 7 to 85.
+  GT: UPDATE client SET financial_wellbeing_score = 85 WHERE client_id = 7;
+  ->  UPDATE client SET financial_wellbeing_score = 85 WHERE client_id = 7;
+
+[018] OK DELETE
+  Q:  Delete all records from the 'oil_production' table where the production_year is less than 2010
+  GT: DELETE FROM oil_production WHERE production_year < 2010;
+  ->  DELETE FROM oil_production WHERE production_year < 2010;
+
+[019] OK UPDATE
+  Q:  Update the User_Experience value for the 'Great Wall of China Tour' in the Virtual_Tourism table, adding 150 to the curr
+  GT: UPDATE Virtual_Tourism SET User_Experience = User_Experience + 150 WHERE Experience = 'Great Wall of China Tour';
+  ->  UPDATE Virtual_Tourism SET User_Experience = User_Experience + 150 WHERE Experience = 'Great Wall of China Tour';
+
+[020] OK DELETE
+  Q:  Delete all records from the 'habitat_preservation' table where the preservation status is 'Vulnerable' and the region is
+  GT: DELETE FROM habitat_preservation WHERE preservation_status = 'Vulnerable' AND region = 'Africa';
+  ->  DELETE FROM habitat_preservation WHERE preservation_status = 'Vulnerable' AND region = 'Africa';
+
+[021] OK DELETE
+  Q:  Delete the timber production record with the lowest volume value.
+  GT: DELETE FROM timber_production WHERE volume = (SELECT MIN(volume) FROM timber_production);
+  ->  DELETE FROM timber_production WHERE volume = (SELECT MIN(volume) FROM timber_production);
+
+[022] OK DELETE
+  Q:  Delete all records related to whale hunting from the arctic_resources table.
+  GT: DELETE FROM arctic_resources WHERE resource = 'whale';
+  ->  DELETE FROM arctic_resources WHERE type = 'hunting' AND resource = 'whale';
+
+[023] OK DELETE
+  Q:  Delete all menu items from Restaurant K that are not vegan.
+  GT: DELETE FROM menu WHERE restaurant_id = 9 AND diet NOT IN ('Vegan');
+  ->  DELETE FROM menu WHERE restaurant_id = 7 AND diet!= 'Vegan';
+
+[024] OK DELETE
+  Q:  Delete all smart city projects in Canada that were completed before 2015.
+  GT: DELETE FROM smart_city_projects WHERE country = 'Canada' AND completion_year < 2015;
+  ->  DELETE FROM smart_city_projects WHERE country = 'Canada' AND completion_year < 2015;
+
+[025] OK DELETE
+  Q:  Delete all records in the satellite_deployment table where satellite_type is not 'GEO'
+  GT: DELETE FROM satellite_deployment WHERE satellite_type != 'GEO';
+  ->  DELETE FROM satellite_deployment WHERE satellite_type!= 'GEO';
+
+[026] OK INSERT
+  Q:  Insert a new record into the 'donors' table for 'Sophia Lee' with a total donation amount of $350
+  GT: INSERT INTO donors (id, name, total_donations) VALUES (1, 'Sophia Lee', 350.00);
+  ->  INSERT INTO donors (name, total_donations) VALUES ('Sophia Lee', 350.00);
+
+[027] OK DELETE
+  Q:  Delete all rows in the tweets table with a retweet count of 0.
+  GT: DELETE FROM tweets WHERE retweet_count = 0;
+  ->  DELETE FROM tweets WHERE retweet_count = 0;
+
+[028] OK UPDATE
+  Q:  Update diversity metrics for 2019 in the database to reflect the new values.
+  GT: UPDATE Diversity SET DiverseEmployees = 80 WHERE Company = 'Acme Inc.' AND Year = 2019;
+  ->  UPDATE Diversity SET DiverseEmployees = 80 WHERE Company = 'Acme Inc.' AND Year = 2019;
+
+[029] OK INSERT
+  Q:  Add a new organic product named "Vitamin C Serum" with ID 6 and price $29.99
+  GT: INSERT INTO products (id, name, category, price) VALUES (6, 'Vitamin C Serum', 'Organic', 29.99);
+  ->  INSERT INTO products (id, name, category, price) VALUES (6, 'Vitamin C Serum', 'organic', 29.99);
+
+[030] OK DELETE
+  Q:  Delete all humanitarian_assistance records for 'Country C' in 2019
+  GT: DELETE FROM humanitarian_assistance WHERE country = 'Country C' AND year = 2019;
+  ->  DELETE FROM humanitarian_assistance WHERE country = 'Country C' AND year = 2019;
+
+[031] OK DELETE
+  Q:  Delete records from the "union_members" table where the "name" column is "Jose Garcia" and the "state" column is "TX"
+  GT: DELETE FROM union_members WHERE name = 'Jose Garcia' AND state = 'TX';
+  ->  DELETE FROM union_members WHERE name = 'Jose Garcia' AND state = 'TX';
+
+[032] OK DELETE
+  Q:  Delete geopolitical risk assessments for 'Morocco' before '2022'?
+  GT: DELETE FROM Geopolitical_Risk_Assessments WHERE country = 'Morocco' AND year < 2022;
+  ->  DELETE FROM Geopolitical_Risk_Assessments WHERE country = 'Morocco' AND year < 2022;
+
+[033] OK UPDATE
+  Q:  Decrease the warehouse stock for item 'A101' by 25 pieces
+  GT: UPDATE Warehouse SET quantity = quantity - 25 WHERE item = 'A101';
+  ->  UPDATE Warehouse SET quantity = quantity - 25 WHERE item = 'A101';
+
+[034] OK INSERT
+  Q:  Insert a new record into the "hospitals" table for 'Rural Hospital C' located at '321 Maple St'
+  GT: INSERT INTO hospitals (name, address) VALUES ('Rural Hospital C', '321 Maple St');
+  ->  INSERT INTO hospitals (id, name, address) VALUES ('789', 'Rural Hospital C', '321 Maple St');
+
+[035] OK DELETE
+  Q:  Delete a subscriber's mobile number from the subscribers table
+  GT: UPDATE subscribers SET mobile_number = NULL WHERE subscriber_id = 12345;
+  ->  DELETE FROM subscribers WHERE subscriber_id = 1;
+
+[036] OK DELETE
+  Q:  Delete records for events that were canceled.
+  GT: DELETE FROM Events WHERE is_canceled = TRUE;
+  ->  DELETE FROM Events WHERE is_canceled = TRUE;
+
+[037] OK UPDATE
+  Q:  Update the name of the project 'Wind Energy Expansion' to 'Wind Power Expansion' in Africa.
+  GT: UPDATE climate_mitigation SET project = 'Wind Power Expansion' WHERE project = 'Wind Energy Expansion' AND location = 'Africa';
+  ->  UPDATE climate_mitigation SET project = 'Wind Power Expansion' WHERE location = 'Africa';
+
+[038] OK INSERT
+  Q:  Insert new records for a game designer who has adopted virtual reality technology.
+  GT: INSERT INTO GameDesigners (DesignerID, Name, VRAdoption) VALUES (1, 'John Doe', TRUE);
+  ->  INSERT INTO GameDesigners (DesignerID, Name, VRAdoption) VALUES 
+(1, 'John Doe', TRUE),
+(2, 'Jane Smith', TRUE),
+(3, 'Bob Johnson', TRUE);
+
+[039] OK UPDATE
+  Q:  Update the manufacturer of the aircraft with id 1
+  GT: UPDATE aircraft_manufacturing SET manufacturer = 'Boeing' WHERE id = 1;
+  ->  UPDATE aircraft_manufacturing SET manufacturer = 'Airbus Industries' WHERE id = 1;
+
+[040] OK UPDATE
+  Q:  Update the 'location' column in the 'marine_conservation' table, changing 'Atlantic Ocean' to 'Sargasso Sea'
+  GT: UPDATE marine_conservation SET location = 'Sargasso Sea' WHERE location = 'Atlantic Ocean';
+  ->  UPDATE marine_conservation SET location = 'Sargasso Sea' WHERE location = 'Atlantic Ocean';
+
+[041] OK INSERT
+  Q:  Insert a new record in the 'cargo_handling' table with the following details: cargo ID 5001, handling date of 2022-03-25
+  GT: INSERT INTO cargo_handling (cargo_id, handling_date, tonnage) VALUES (5001, '2022-03-25', 5000);
+  ->  INSERT INTO cargo_handling (cargo_id, handling_date, tonnage) VALUES (5001, '2022-03-25', 5000);
+
+[042] OK DELETE
+  Q:  Delete all records from the "articles" table where the "source" is "Reuters" and the "published_at" is before '2021-01-0
+  GT: DELETE FROM articles WHERE source = 'Reuters' AND published_at < '2021-01-01 00:00:00';
+  ->  DELETE FROM articles WHERE source = 'Reuters' AND published_at < '2021-01-01';
+
+[043] OK UPDATE
+  Q:  Update the Vessel table, setting the 'Type' column to 'Tanker' for vessels with an Id of 3, 7, or 15
+  GT: UPDATE Vessel SET Type = 'Tanker' WHERE Id IN (3, 7, 15);
+  ->  UPDATE Vessel 
+SET Type = 'Tanker' 
+WHERE Id IN (3, 7, 15);
+
+[044] OK DELETE
+  Q:  Delete all records from the 'regulatory_frameworks' table where the framework is 'Crypto Trading Regulation'
+  GT: DELETE FROM regulatory_frameworks WHERE framework = 'Crypto Trading Regulation';
+  ->  DELETE FROM regulatory_frameworks WHERE framework = 'Crypto Trading Regulation';
+
+[045] OK UPDATE
+  Q:  Decrease the age rating of 'Fight Club' from 'R' to 'PG-13'
+  GT: UPDATE movies SET rating = 'PG-13' WHERE title = 'Fight Club';
+  ->  UPDATE movies 
+SET rating = 'PG-13' 
+WHERE title = 'Fight Club';
+
+[046] OK DELETE
+  Q:  Delete a broadband plan from the 'broadband_plans' table
+  GT: DELETE FROM broadband_plans WHERE plan_id = 3001;
+  ->  DELETE FROM broadband_plans WHERE plan_id = 1;
+
+[047] OK INSERT
+  Q:  Insert a new patient record with the following details: patient_id 4, first_name 'Jamila', last_name 'Ahmed', date_of_bi
+  GT: INSERT INTO patients (patient_id, first_name, last_name, date_of_birth, ethnicity) VALUES (4, 'Jamila', 'Ahmed', '1980-05-15', 'Hispanic');
+  ->  INSERT INTO patients (patient_id, first_name, last_name, date_of_birth, ethnicity) 
+VALUES (4, 'Jamila', 'Ahmed', '1980-05-15', 'Hispanic');
+
+[048] OK INSERT
+  Q:  Insert a new graduate student with a unique student_id, name, and program.
+  GT: INSERT INTO graduate_students VALUES (4, 'María Rodríguez', 'Computer Science');
+  ->  INSERT INTO graduate_students (student_id, name, program) 
+VALUES (1, 'John Doe', 'Master of Science');
+
+[049] OK INSERT
+  Q:  Add new records of Arctic species distribution to the existing table
+  GT: INSERT INTO SpeciesDistribution (species, year, distribution) VALUES ('Reindeer', 2013, 'Tundra'), ('Reindeer', 2014, 'Forests'), ('Reindeer', 2015, 'Mountains'), ('Reindeer', 2016, 'Coastal Areas');
+  ->  INSERT INTO SpeciesDistribution (species, year, distribution) VALUES 
+('Arctic Fox', 2017, 'Tundra'),
+('Arctic Fox', 2018, 'Mountains'),
+('Arctic Fox', 2019, 'Forests'),
+('Muskoxen', 2017, 'Forests'),
+('Muskoxen', 2018, 'Mountains');
+
+[050] OK DELETE
+  Q:  Delete records from the VisitorDemographics table where Gender is 'Other'.
+  GT: DELETE FROM VisitorDemographics WHERE Gender = 'Other';
+  ->  DELETE FROM VisitorDemographics WHERE Gender = 'Other';
+
+[051] OK DELETE
+  Q:  Delete all records from the 'stations' table where the 'city' is 'San Francisco'
+  GT: DELETE FROM stations WHERE city = 'San Francisco';
+  ->  DELETE FROM stations WHERE city = 'San Francisco';
+
+[052] OK INSERT
+  Q:  Insert a new smart contract 'Governance' with language 'DAML'
+  GT: INSERT INTO smart_contracts (name, language) VALUES ('Governance', 'DAML');
+  ->  INSERT INTO smart_contracts (name, language) VALUES ('Governance', 'DAML');
+
+[053] OK DELETE
+  Q:  Delete all crime incidents in district 1 that were reported before '2019-01-01'
+  GT: DELETE FROM crime_incidents WHERE reported_date < '2019-01-01' AND district_id = 1;
+  ->  DELETE FROM crime_incidents WHERE district_id = 1 AND reported_date < '2019-01-01';
+
+[054] OK INSERT
+  Q:  Insert new records into the models table for AI models, "ModelG" and "ModelH", both Generative models, developed in Braz
+  GT: INSERT INTO models (model_name, model_type, country, safety_score, explainability_score) VALUES ('ModelG', 'Generative', 'Brazil', 88.00, 85.00), ('ModelH', 'Generative', 'Indonesia', 89.00, 86.00);
+  ->  INSERT INTO models (model_id, model_name, model_type, country, safety_score, explainability_score) 
+VALUES (1, 'ModelG', 'Generative', 'Brazil', 88.00, 85.00);
+
+[055] OK UPDATE
+  Q:  Update the 'organic' column in the 'farmers_market_vendors' table for all records with 'state' 'NY' and set the value to
+  GT: UPDATE farmers_market_vendors SET organic = 1 WHERE state = 'NY';
+  ->  UPDATE farmers_market_vendors 
+SET organic = 1 
+WHERE state = 'NY';
+
+[056] OK INSERT
+  Q:  Add a new food justice project 'Project E' in 'Texas' with an area of 1.2 hectares to the 'food_justice_projects' table.
+  GT: INSERT INTO food_justice_projects (id, name, location, area_ha) VALUES (4, 'Project E', 'Texas', 1.2);
+  ->  INSERT INTO food_justice_projects (name, location, area_ha) VALUES ('Project E', 'Texas', 1.2);
+
+[057] OK DELETE
+  Q:  Delete all records in the military_innovations table where the innovation_year is after 2030
+  GT: DELETE FROM military_innovations WHERE innovation_year > 2030;
+  ->  DELETE FROM military_innovations WHERE innovation_year > 2030;
+
+[058] OK INSERT
+  Q:  Insert a new supplier from an underrepresented community with a high ethical rating
+  GT: INSERT INTO suppliers (supplier_id, supplier_name, ethical_rating, community_representation) VALUES (104, 'Supplier W', 9, 'Underrepresented');
+  ->  INSERT INTO suppliers (supplier_id, supplier_name, ethical_rating, community_representation) 
+VALUES (4, 'Green Earth Supplies', 95, 'Underrepresented Community');
+
+[059] OK INSERT
+  Q:  Add a new record in the "technology_companies" table for "Jumia" with "Africa" as the region and "E-commerce, fintech" a
+  GT: INSERT INTO technology_companies (name, region, industry) VALUES ('Jumia', 'Africa', 'E-commerce, fintech');
+  ->  INSERT INTO technology_companies (name, region, industry) VALUES ('Jumia', 'Africa', 'E-commerce, fintech');
+
+[060] OK UPDATE
+  Q:  Update the financialWellbeing table to reflect increased financial wellbeing for user 'Ahmed'.
+  GT: UPDATE FinancialWellbeing SET wellbeingScore = 8 WHERE userID = 'Ahmed';
+  ->  UPDATE FinancialWellbeing SET wellbeingScore = wellbeingScore + 1 WHERE userID = 'Ahmed';
+
+[061] OK INSERT
+  Q:  Insert a new cargo record into the "cargo" table
+  GT: INSERT INTO cargo (id, description) VALUES (55566, 'New Cargo Description');
+  ->  INSERT INTO cargo (id, description) VALUES (3, 'Fuel');
+
+[062] OK UPDATE
+  Q:  Update the ticket prices for all football matches in Brazil to 150.
+  GT: UPDATE matches SET tickets_price = 150 WHERE sport = 'Football' AND location = 'Brazil';
+  ->  UPDATE matches SET tickets_price = 150 WHERE sport = 'Football' AND location = 'Brazil';
+
+[063] OK UPDATE
+  Q:  Update the 'quantity' of a material in the 'inventory' table to 200 where the 'material' is 'bamboo' and the 'country' o
+  GT: UPDATE inventory SET quantity = 200 WHERE material = 'bamboo' AND EXISTS (SELECT * FROM production WHERE country = 'Indonesia');
+  ->  UPDATE inventory SET quantity = 200 
+WHERE material IN (SELECT material FROM production WHERE country = 'Indonesia');
+
+[064] OK INSERT
+  Q:  Insert a new record into the "geological_survey" table with the following data: 'Emerald Exploration', 'Emerald', '2022-
+  GT: INSERT INTO geological_survey (mine_name, mineral_type, survey_date) VALUES ('Emerald Exploration', 'Emerald', '2022-03-25');
+  ->  INSERT INTO geological_survey (mine_name, mineral_type, survey_date) 
+VALUES ('Emerald Exploration', 'Emerald', '2022-03-25');
+
+[065] OK UPDATE
+  Q:  Update the irrigation settings for all corn fields to 50% of their current value.
+  GT: UPDATE irrigation SET setting = irrigation.setting * 0.5 FROM field WHERE field.type = 'corn';
+  ->  UPDATE irrigation 
+SET setting = setting * 0.5 
+WHERE field_id IN (SELECT id FROM field WHERE type = 'corn');
+
+[066] OK UPDATE
+  Q:  Update the policyholder name for policy number 12345 to Jane Doe.
+  GT: UPDATE policies SET policyholder_name = 'Jane Doe' WHERE policy_number = 12345;
+  ->  UPDATE policies SET policyholder_name = 'Jane Doe' WHERE policy_number = 12345;
+
+[067] OK INSERT
+  Q:  Insert a new record into the 'veteran_employment' table for a veteran hired as a 'software engineer' on 2022-03-15 with 
+  GT: INSERT INTO veteran_employment (veteran_id, job_title, hire_date, salary) VALUES (1, 'software engineer', '2022-03-15', 80000);
+  ->  INSERT INTO veteran_employment (veteran_id, job_title, hire_date, salary) 
+VALUES (1, 'software engineer', '2022-03-15', 80000.0);
+
+[068] OK UPDATE
+  Q:  Update the budget for the 'Accessibility Improvements' program to 25000.
+  GT: UPDATE support_programs SET budget = 25000 WHERE program_name = 'Accessibility Improvements';
+  ->  UPDATE support_programs SET budget = 25000 WHERE program_name = 'Accessibility Improvements';
+
+[069] OK INSERT
+  Q:  Insert new data for the satellite "Kuiper" launched by the USA in 2020 with an average distance of 43000 km.
+  GT: INSERT INTO satellites (name, country_of_origin, avg_distance) VALUES ('Kuiper', 'USA', 43000);
+  ->  INSERT INTO satellites (name, country_of_origin, avg_distance) VALUES ('Kuiper', 'USA', 43000.0);
+
+[070] OK DELETE
+  Q:  Delete records from the "clinicians" table where the clinician's last name is 'Doe'
+  GT: DELETE FROM clinicians WHERE last_name = 'Doe';
+  ->  DELETE FROM clinicians WHERE last_name = 'Doe';
+
+[071] OK DELETE
+  Q:  Delete all posts with less than 10 characters
+  GT: DELETE FROM posts WHERE LENGTH(content) < 10;
+  ->  DELETE FROM posts WHERE LENGTH(content) < 10;
+
+[072] OK DELETE
+  Q:  Delete all records for donor_id 3.
+  GT: DELETE FROM donors WHERE donor_id = 3;
+  ->  DELETE FROM donors WHERE donor_id = 3;
+
+[073] OK DELETE
+  Q:  Delete all records related to diversity training programs.
+  GT: DELETE FROM TrainingPrograms WHERE ProgramType = 'Diversity';
+  ->  DELETE FROM TrainingPrograms WHERE ProgramType = 'Diversity';
+
+[074] OK INSERT
+  Q:  Insert a new record into the "smart_contracts" table with "contract_address" as "0x1234567890123456789012345678901234567
+  GT: INSERT INTO smart_contracts (contract_address, contract_type, country) VALUES ('0x1234567890123456789012345678901234567890', 'ERC20', 'UK');
+  ->  INSERT INTO smart_contracts (contract_address, contract_type, country) 
+VALUES ('0x1234567890123456789012345678901234567890', 'ERC20', 'UK');
+
+[075] OK INSERT
+  Q:  Insert a new deep-sea species 'Yetidracus profundis' into the species table
+  GT: INSERT INTO species (scientific_name, common_name, conservation_status) VALUES ('Yetidracus profundis', 'Yeti Shark', 'Vulnerable');
+  ->  INSERT INTO species (scientific_name, common_name, conservation_status) VALUES ('Yetidracus profundis', 'Deep-Sea Yetidracus', 'Data Deficient');
+
+[076] OK INSERT
+  Q:  Insert a new record into the labor_practices table with the following information: 'Manufacturer D', 'Cambodia', 'Gender
+  GT: INSERT INTO labor_practices (manufacturer, country, practice, compliant) VALUES ('Manufacturer D', 'Cambodia', 'Gender Equality', 'Yes');
+  ->  INSERT INTO labor_practices (manufacturer, country, practice, compliant) VALUES ('Manufacturer D', 'Cambodia', 'Gender Equality', 'Yes');
+
+[077] OK UPDATE
+  Q:  Update information on an artist from the Baroque movement.
+  GT: UPDATE Artists SET BirthDate = '1577-06-29' WHERE Name = 'Peter Paul Rubens';
+  ->  UPDATE Artists 
+SET Name = 'Petter Paul Rubens', BirthDate = '1577-06-28', DeathDate = '1640-05-30', Movement = 'Baroque' 
+WHERE ArtistID = 1;
+
+[078] OK UPDATE
+  Q:  Update the price of all organic vegetables in the inventory of GreenMarket to $0.99 per pound.
+  GT: UPDATE Inventory SET price = 0.99 WHERE type = 'organic vegetables';
+  ->  UPDATE Inventory 
+SET price = 0.99 
+WHERE type = 'organic vegetables';
+
+[079] OK DELETE
+  Q:  Delete records from the "accidents" table where the date is after 2019-01-01
+  GT: DELETE FROM accidents WHERE date > '2019-01-01';
+  ->  DELETE FROM accidents WHERE date > '2019-01-01';
+
+[080] OK DELETE
+  Q:  Delete all climate adaptation records related to 'disaster preparedness' in Europe.
+  GT: DELETE FROM climate_adaptation WHERE project LIKE '%disaster preparedness%' AND location = 'Europe';
+  ->  DELETE FROM climate_adaptation WHERE project = 'disaster preparedness' AND location = 'Europe';
+
+[081] OK UPDATE
+  Q:  Update the 'amount' column in the 'climate_finance' table where the 'funding_source' is 'Private sector' and 'country' i
+  GT: UPDATE climate_finance SET amount = amount * 1.1 WHERE funding_source = 'Private sector' AND country = 'United States';
+  ->  UPDATE climate_finance 
+SET amount = 1000000 
+WHERE funding_source = 'Private sector' 
+AND country = 'United States';
+
+[082] OK UPDATE
+  Q:  Update the fine for permit ID 888 to $9000
+  GT: UPDATE labor_stats SET fine = 9000 WHERE permit_id = 888;
+  ->  UPDATE labor_stats SET fine = 9000 WHERE permit_id = 888;
+
+[083] OK INSERT
+  Q:  Add a new course record with the following details: course_id: 2001, title: Python Programming, completed: 2023-01-20
+  GT: INSERT INTO courses (course_id, title, completed) VALUES (2001, 'Python Programming', '2023-01-20');
+  ->  INSERT INTO courses (course_id, title, completed) VALUES (2001, 'Python Programming', '2023-01-20');
+
+[084] OK UPDATE
+  Q:  Update the number of visitors of the 'Eiffel Tower' in 'France' to 20000
+  GT: UPDATE cultural_sites SET visitors = 20000 WHERE name = 'Eiffel Tower' AND country = 'France';
+  ->  UPDATE cultural_sites SET visitors = 20000 WHERE name = 'Eiffel Tower' AND country = 'France';
+
+[085] OK INSERT
+  Q:  Insert a new record for a student with a learning disability who requires assistive technology accommodations.
+  GT: INSERT INTO StudentAccommodations (StudentID, StudentName, DisabilityType, AccommodationType) VALUES (3, 'Mike Brown', 'Learning Disability', 'Assistive Technology');
+  ->  INSERT INTO StudentAccommodations (StudentID, StudentName, DisabilityType, AccommodationType) 
+VALUES (3, 'Emily Johnson', 'Learning Disability', 'Assistive Technology');
+
+[086] OK INSERT
+  Q:  Add new training program for the IT department
+  GT: INSERT INTO Training (TrainingID, TrainingName, Department) VALUES (1, 'IT Skills Bootcamp', 'IT');
+  ->  INSERT INTO Training (TrainingID, TrainingName, Department) 
+VALUES (4, 'Cybersecurity', 'IT');
+
+[087] OK DELETE
+  Q:  Delete all flight safety records before 2000
+  GT: DELETE FROM flight_safety WHERE year < 2000;
+  ->  DELETE FROM flight_safety WHERE year < 2000;
+
+[088] OK DELETE
+  Q:  Delete records with a prevalence over 70% in the 'rural_diseases' table
+  GT: DELETE FROM rural_diseases WHERE prevalence > 0.70;
+  ->  DELETE FROM rural_diseases WHERE prevalence > 70.00;
+
+[089] OK DELETE
+  Q:  Delete the mining site with the lowest productivity
+  GT: DELETE FROM mining_sites WHERE productivity = (SELECT MIN(productivity) FROM mining_sites);
+  ->  DELETE FROM mining_sites WHERE productivity = (SELECT MIN(productivity) FROM mining_sites);
+
+[090] OK INSERT
+  Q:  Add a new record to the "sustainable_practices" table with an ID of 5, a description of 'Reducing water usage in houseke
+  GT: INSERT INTO sustainable_practices (practice_id, description, category) VALUES (5, 'Reducing water usage in housekeeping', 'Water');
+  ->  INSERT INTO sustainable_practices (practice_id, description, category) VALUES (5, 'Reducing water usage in housekeeping', 'Water');
+
+[091] OK INSERT
+  Q:  Insert a new record into the 'vehicle_maintenance' table for a bus with vehicle_id 'BUS-123'
+  GT: INSERT INTO vehicle_maintenance (vehicle_id, maintenance_date, maintenance_type) VALUES ('BUS-123', '2022-03-01', 'Inspection');
+  ->  INSERT INTO vehicle_maintenance (vehicle_id, maintenance_date, maintenance_type) VALUES ('BUS-123', '2024-07-26', 'Oil Change');
+
+[092] OK UPDATE
+  Q:  Update the "hazard_level" for 'Ammonia' in the "chemicals" table
+  GT: UPDATE chemicals SET hazard_level = 3 WHERE chemical_name = 'Ammonia';
+  ->  UPDATE chemicals SET hazard_level = 3 WHERE chemical_name = 'Ammonia';
+
+[093] OK INSERT
+  Q:  Insert new equipment data for a rowing machine purchased in Japan on March 15, 2022.
+  GT: INSERT INTO Equipment (EquipmentID, EquipmentName, PurchaseDate, PurchaseLocation) VALUES (4, 'Rowing Machine', '2022-03-15', 'Japan');
+  ->  INSERT INTO Equipment (EquipmentID, EquipmentName, PurchaseDate, PurchaseLocation) 
+VALUES (1, 'Rowing Machine', '2022-03-15', 'Japan');
+
+[094] OK UPDATE
+  Q:  Update the area of 'Garden A' to 0.7 hectares.
+  GT: UPDATE gardens SET area_ha = 0.7 WHERE name = 'Garden A';
+  ->  UPDATE gardens SET area_ha = 0.7 WHERE name = 'Garden A';
+
+[095] OK INSERT
+  Q:  Add a new pollution control initiative in 'Asia' for 2022.
+  GT: INSERT INTO Initiatives_4 (id, initiative, region, year) VALUES (4, 'Wastewater Treatment', 'Asia', 2022);
+  ->  INSERT INTO Initiatives_4 (id, initiative, region, year) VALUES (4, 'Pollution Control', 'Asia', 2022);
+
+[096] OK UPDATE
+  Q:  Update the membership type of the member with ID 002 to 'diamond' in the memberships table.
+  GT: UPDATE memberships SET member_type = 'diamond' WHERE id = 2;
+  ->  UPDATE memberships SET member_type = 'diamond' WHERE id = 2;
+
+[097] OK DELETE
+  Q:  Delete records in the "solar_plants" table where the capacity is less than 50 MW
+  GT: DELETE FROM solar_plants WHERE capacity < 50;
+  ->  DELETE FROM solar_plants WHERE capacity < 50;
+
+[098] OK UPDATE
+  Q:  Update the arrival age of visitors from Japan to 30.
+  GT: UPDATE tourism_data SET arrival_age = 30 WHERE country = 'Japan';
+  ->  UPDATE tourism_data SET arrival_age = 30 WHERE country = 'Japan';
+
+[099] OK DELETE
+  Q:  Delete the record with the name South America from the 'habitats' table.
+  GT: DELETE FROM habitats WHERE name = 'South America';
+  ->  DELETE FROM habitats WHERE name = 'South America';
+
+[100] OK DELETE
+  Q:  Delete records in the vessel_performance table where the vessel_name is 'Blue Horizon' and the measurement_value is grea
+  GT: DELETE FROM vessel_performance  WHERE vessel_name = 'Blue Horizon'  AND measurement_value > 80;
+  ->  DELETE FROM vessel_performance WHERE vessel_name = 'Blue Horizon' AND measurement_value > 80;
+
+-- SUMMARY: Base Model --
+  Valid DML Syntax : 100.0%
+  Safe Execution   : 100.0%
+  WHERE Safe       : 100.0%
+  Type Breakdown   : {'INSERT': 32, 'UPDATE': 31, 'DELETE': 37, 'UNKNOWN': 0}
+
+============================================================
+ EVALUATING: DML Fine-Tuned  (100 samples)
+============================================================
+
+[001] OK UPDATE
+  Q:  Update the job title of an existing employee in the "employees" table
+  GT: UPDATE employees SET job_title = 'Senior Software Engineer' WHERE id = 101;
+  ->  UPDATE employees SET job_title = 'Software Engineer' WHERE id = 12345;
+
+[002] OK DELETE
+  Q:  Delete records of clients who are not part of any socially responsible investment programs from the clients table.
+  GT: DELETE FROM clients WHERE client_id IN (SELECT client_id FROM clients c1 WHERE program NOT IN (SELECT program FROM socially_responsible_investment_programs) GROUP BY client_id HAVING COUNT(*) = (SELECT COUNT(*) FROM clients c2 WHERE c1.client_id = c2.client_id));
+  ->  DELETE FROM clients WHERE client_id NOT IN (SELECT c.client_id FROM clients c JOIN socially_responsible_investment_programs srp ON c.program = srp.program);
+
+[003] OK DELETE
+  Q:  Delete any records in the 'Melting_Icecaps' table where the ice cap has completely melted before 2020.
+  GT: DELETE FROM Melting_Icecaps WHERE icecap_name IN (SELECT icecap_name FROM Melting_Icecaps WHERE melt_date < '2020-01-01');
+  ->  DELETE FROM Melting_Icecaps WHERE melt_date < '2020-01-01';
+
+[004] OK UPDATE
+  Q:  Update the "score" for the "Amazon" record in the "social_impact_scores" table to 80 for the year 2021
+  GT: UPDATE social_impact_scores SET score = 80 WHERE company = 'Amazon' AND year = 2021;
+  ->  UPDATE social_impact_scores SET score = 80 WHERE company = 'Amazon' AND year = 2021;
+
+[005] OK DELETE
+  Q:  Delete health equity metrics for Arizona in 2019
+  GT: DELETE FROM health_equity_metrics WHERE state = 'AZ' AND year = 2019;
+  ->  DELETE FROM health_equity_metrics WHERE state = 'AZ' AND year = 2019;
+
+[006] OK UPDATE
+  Q:  Replace all instances of the instructor 'Dr. Maria Fernandes' with 'Dr. Maria Rodriguez'.
+  GT: UPDATE course_instructor SET instructor_name = 'Dr. Maria Rodriguez' WHERE instructor_name = 'Dr. Maria Fernandes';
+  ->  UPDATE course_instructor SET instructor_name = 'Dr. Maria Rodriguez' WHERE instructor_name = 'Dr. Maria Fernandes';
+
+[007] OK UPDATE
+  Q:  Update the 'process_type' column to 'Continuous' for the bioprocess with 'name' = 'Fermentation 1'
+  GT: UPDATE bioprocesses SET process_type = 'Continuous' WHERE name = 'Fermentation 1';
+  ->  UPDATE bioprocesses SET process_type = 'Continuous' WHERE name = 'Fermentation 1';
+
+[008] OK UPDATE
+  Q:  Update the contract value for all contracts with country A in the contract_negotiations table to be 6 million dollars
+  GT: UPDATE contract_negotiations SET contract_value = 6000000 WHERE country = 'Country A';
+  ->  UPDATE contract_negotiations SET contract_value = 6000000 WHERE country = 'Country A';
+
+[009] OK INSERT
+  Q:  Insert a new record into the research_vessels table for a vessel operating in the Atlantic Ocean
+  GT: INSERT INTO research_vessels (id, name, type, length, max_depth_meters, region) VALUES (31, 'Ocean Explorer', 'Research Vessel', 80.5, 4000, 'Atlantic Ocean');
+  ->  INSERT INTO research_vessels (id, name, type, length, max_depth_meters, region) VALUES (1, 'RV Ocean Explorer', 'Research Vessel', 80.5, 4000, 'Atlantic Ocean');
+
+[010] OK INSERT
+  Q:  Insert new records into the 'machines' table with the following data: (4, 'Machine 4', 'Brazil')
+  GT: INSERT INTO machines (id, name, manufacturing_country) VALUES (4, 'Machine 4', 'Brazil');
+  ->  INSERT INTO machines (id, name, manufacturing_country) VALUES (4, 'Machine 4', 'Brazil');
+
+[011] OK INSERT
+  Q:  Insert a new record in the field_temperature table for field 4 with a temperature of 25 degrees and a measurement date o
+  GT: INSERT INTO field_temperature (field_id, temperature, measurement_date) VALUES (4, 25.0, '2023-03-01');
+  ->  INSERT INTO field_temperature (field_id, temperature, measurement_date) VALUES (4, 25, '2023-03-01');
+
+[012] OK UPDATE
+  Q:  Update the species count for the 'Great Barrier Reef' marine protected area.
+  GT: UPDATE marine_protected_areas SET species_count = 1600 WHERE name = 'Great Barrier Reef';
+  ->  UPDATE marine_protected_areas SET species_count = 1600 WHERE name = 'Great Barrier Reef';
+
+[013] OK INSERT
+  Q:  Add new environmental impact statistics to the environmental_impact_stats table for 2021: CO2_emission = 1500, water_con
+  GT: INSERT INTO environmental_impact_stats (id, year, CO2_emission, water_consumption, waste_generation) VALUES (6, 2021, 1500, 30000, 2500);
+  ->  INSERT INTO environmental_impact_stats (year, CO2_emission, water_consumption, waste_generation) VALUES (2021, 1500, 30000, 2500);
+
+[014] OK DELETE
+  Q:  Delete 'games' records where the 'score' is below 0
+  GT: DELETE FROM games WHERE score < 0;
+  ->  DELETE FROM games WHERE score < 0;
+
+[015] OK INSERT
+  Q:  Insert new records for the TV shows released in 2022 with a rating above 8
+  GT: INSERT INTO tv_shows (title, genre, budget, release_year, rating) VALUES ('Show4', 'Comedy', 10000000, 2022, 8.5), ('Show5', 'Drama', 12000000, 2022, 9), ('Show6', 'Action', 15000000, 2022, 8.2);
+  ->  INSERT INTO tv_shows (title, genre, budget, release_year, rating) VALUES ('Show1', 'Comedy', 1500000, 2022, 9), ('Show2', 'Drama', 2000000, 2022, 8.5);
+
+[016] OK DELETE
+  Q:  Delete the volunteer with VolunteerID of 3
+  GT: DELETE FROM Volunteers WHERE VolunteerID = 3;
+  ->  DELETE FROM Volunteers WHERE VolunteerID = 3;
+
+[017] OK UPDATE
+  Q:  Update the financial wellbeing score for client with ID 7 to 85.
+  GT: UPDATE client SET financial_wellbeing_score = 85 WHERE client_id = 7;
+  ->  UPDATE client SET financial_wellbeing_score = 85 WHERE client_id = 7;
+
+[018] OK DELETE
+  Q:  Delete all records from the 'oil_production' table where the production_year is less than 2010
+  GT: DELETE FROM oil_production WHERE production_year < 2010;
+  ->  DELETE FROM oil_production WHERE production_year < 2010;
+
+[019] OK UPDATE
+  Q:  Update the User_Experience value for the 'Great Wall of China Tour' in the Virtual_Tourism table, adding 150 to the curr
+  GT: UPDATE Virtual_Tourism SET User_Experience = User_Experience + 150 WHERE Experience = 'Great Wall of China Tour';
+  ->  UPDATE Virtual_Tourism SET User_Experience = User_Experience + 150 WHERE Experience = 'Great Wall of China Tour';
+
+[020] OK DELETE
+  Q:  Delete all records from the 'habitat_preservation' table where the preservation status is 'Vulnerable' and the region is
+  GT: DELETE FROM habitat_preservation WHERE preservation_status = 'Vulnerable' AND region = 'Africa';
+  ->  DELETE FROM habitat_preservation WHERE region = 'Africa' AND preservation_status = 'Vulnerable';
+
+[021] OK DELETE
+  Q:  Delete the timber production record with the lowest volume value.
+  GT: DELETE FROM timber_production WHERE volume = (SELECT MIN(volume) FROM timber_production);
+  ->  DELETE FROM timber_production WHERE volume = (SELECT MIN(volume) FROM timber_production);
+
+[022] OK DELETE
+  Q:  Delete all records related to whale hunting from the arctic_resources table.
+  GT: DELETE FROM arctic_resources WHERE resource = 'whale';
+  ->  DELETE FROM arctic_resources WHERE resource = 'whale';
+
+[023] OK DELETE
+  Q:  Delete all menu items from Restaurant K that are not vegan.
+  GT: DELETE FROM menu WHERE restaurant_id = 9 AND diet NOT IN ('Vegan');
+  ->  DELETE FROM menu WHERE restaurant_id = 7 AND diet!= 'Vegan';
+
+[024] OK DELETE
+  Q:  Delete all smart city projects in Canada that were completed before 2015.
+  GT: DELETE FROM smart_city_projects WHERE country = 'Canada' AND completion_year < 2015;
+  ->  DELETE FROM smart_city_projects WHERE country = 'Canada' AND completion_year < 2015;
+
+[025] OK DELETE
+  Q:  Delete all records in the satellite_deployment table where satellite_type is not 'GEO'
+  GT: DELETE FROM satellite_deployment WHERE satellite_type != 'GEO';
+  ->  DELETE FROM satellite_deployment WHERE satellite_type!= 'GEO';
+
+[026] OK INSERT
+  Q:  Insert a new record into the 'donors' table for 'Sophia Lee' with a total donation amount of $350
+  GT: INSERT INTO donors (id, name, total_donations) VALUES (1, 'Sophia Lee', 350.00);
+  ->  INSERT INTO donors (name, total_donations) VALUES ('Sophia Lee', 350);
+
+[027] OK DELETE
+  Q:  Delete all rows in the tweets table with a retweet count of 0.
+  GT: DELETE FROM tweets WHERE retweet_count = 0;
+  ->  DELETE FROM tweets WHERE retweet_count = 0;
+
+[028] OK UPDATE
+  Q:  Update diversity metrics for 2019 in the database to reflect the new values.
+  GT: UPDATE Diversity SET DiverseEmployees = 80 WHERE Company = 'Acme Inc.' AND Year = 2019;
+  ->  UPDATE Diversity SET DiverseEmployees = 80 WHERE Company = 'Acme Inc.' AND Year = 2019;
+
+[029] OK INSERT
+  Q:  Add a new organic product named "Vitamin C Serum" with ID 6 and price $29.99
+  GT: INSERT INTO products (id, name, category, price) VALUES (6, 'Vitamin C Serum', 'Organic', 29.99);
+  ->  INSERT INTO products (id, name, category, price) VALUES (6, 'Vitamin C Serum', 'organic', 29.99);
+
+[030] OK DELETE
+  Q:  Delete all humanitarian_assistance records for 'Country C' in 2019
+  GT: DELETE FROM humanitarian_assistance WHERE country = 'Country C' AND year = 2019;
+  ->  DELETE FROM humanitarian_assistance WHERE country = 'Country C' AND year = 2019;
+
+[031] OK DELETE
+  Q:  Delete records from the "union_members" table where the "name" column is "Jose Garcia" and the "state" column is "TX"
+  GT: DELETE FROM union_members WHERE name = 'Jose Garcia' AND state = 'TX';
+  ->  DELETE FROM union_members WHERE name = 'Jose Garcia' AND state = 'TX';
+
+[032] OK DELETE
+  Q:  Delete geopolitical risk assessments for 'Morocco' before '2022'?
+  GT: DELETE FROM Geopolitical_Risk_Assessments WHERE country = 'Morocco' AND year < 2022;
+  ->  DELETE FROM Geopolitical_Risk_Assessments WHERE country = 'Morocco' AND year < 2022;
+
+[033] OK UPDATE
+  Q:  Decrease the warehouse stock for item 'A101' by 25 pieces
+  GT: UPDATE Warehouse SET quantity = quantity - 25 WHERE item = 'A101';
+  ->  UPDATE Warehouse SET quantity = quantity - 25 WHERE item = 'A101';
+
+[034] OK INSERT
+  Q:  Insert a new record into the "hospitals" table for 'Rural Hospital C' located at '321 Maple St'
+  GT: INSERT INTO hospitals (name, address) VALUES ('Rural Hospital C', '321 Maple St');
+  ->  INSERT INTO hospitals (id, name, address) VALUES ('789', 'Rural Hospital C', '321 Maple St');
+
+[035] OK DELETE
+  Q:  Delete a subscriber's mobile number from the subscribers table
+  GT: UPDATE subscribers SET mobile_number = NULL WHERE subscriber_id = 12345;
+  ->  DELETE FROM subscribers WHERE subscriber_id = 12345;
+
+[036] OK DELETE
+  Q:  Delete records for events that were canceled.
+  GT: DELETE FROM Events WHERE is_canceled = TRUE;
+  ->  DELETE FROM Events WHERE is_canceled = TRUE;
+
+[037] OK UPDATE
+  Q:  Update the name of the project 'Wind Energy Expansion' to 'Wind Power Expansion' in Africa.
+  GT: UPDATE climate_mitigation SET project = 'Wind Power Expansion' WHERE project = 'Wind Energy Expansion' AND location = 'Africa';
+  ->  UPDATE climate_mitigation SET project = 'Wind Power Expansion' WHERE location = 'Africa';
+
+[038] OK INSERT
+  Q:  Insert new records for a game designer who has adopted virtual reality technology.
+  GT: INSERT INTO GameDesigners (DesignerID, Name, VRAdoption) VALUES (1, 'John Doe', TRUE);
+  ->  INSERT INTO GameDesigners (DesignerID, Name, VRAdoption) VALUES (1, 'John Doe', TRUE);
+
+[039] OK UPDATE
+  Q:  Update the manufacturer of the aircraft with id 1
+  GT: UPDATE aircraft_manufacturing SET manufacturer = 'Boeing' WHERE id = 1;
+  ->  UPDATE aircraft_manufacturing SET manufacturer = 'Boeing' WHERE id = 1;
+
+[040] OK UPDATE
+  Q:  Update the 'location' column in the 'marine_conservation' table, changing 'Atlantic Ocean' to 'Sargasso Sea'
+  GT: UPDATE marine_conservation SET location = 'Sargasso Sea' WHERE location = 'Atlantic Ocean';
+  ->  UPDATE marine_conservation SET location = 'Sargasso Sea' WHERE location = 'Atlantic Ocean';
+
+[041] OK INSERT
+  Q:  Insert a new record in the 'cargo_handling' table with the following details: cargo ID 5001, handling date of 2022-03-25
+  GT: INSERT INTO cargo_handling (cargo_id, handling_date, tonnage) VALUES (5001, '2022-03-25', 5000);
+  ->  INSERT INTO cargo_handling (cargo_id, handling_date, tonnage) VALUES (5001, '2022-03-25', 5000);
+
+[042] OK DELETE
+  Q:  Delete all records from the "articles" table where the "source" is "Reuters" and the "published_at" is before '2021-01-0
+  GT: DELETE FROM articles WHERE source = 'Reuters' AND published_at < '2021-01-01 00:00:00';
+  ->  DELETE FROM articles WHERE source = 'Reuters' AND published_at < '2021-01-01';
+
+[043] OK UPDATE
+  Q:  Update the Vessel table, setting the 'Type' column to 'Tanker' for vessels with an Id of 3, 7, or 15
+  GT: UPDATE Vessel SET Type = 'Tanker' WHERE Id IN (3, 7, 15);
+  ->  UPDATE Vessel SET Type = 'Tanker' WHERE Id IN (3, 7, 15);
+
+[044] OK DELETE
+  Q:  Delete all records from the 'regulatory_frameworks' table where the framework is 'Crypto Trading Regulation'
+  GT: DELETE FROM regulatory_frameworks WHERE framework = 'Crypto Trading Regulation';
+  ->  DELETE FROM regulatory_frameworks WHERE framework = 'Crypto Trading Regulation';
+
+[045] OK UPDATE
+  Q:  Decrease the age rating of 'Fight Club' from 'R' to 'PG-13'
+  GT: UPDATE movies SET rating = 'PG-13' WHERE title = 'Fight Club';
+  ->  UPDATE movies SET rating = 'PG-13' WHERE title = 'Fight Club';
+
+[046] OK DELETE
+  Q:  Delete a broadband plan from the 'broadband_plans' table
+  GT: DELETE FROM broadband_plans WHERE plan_id = 3001;
+  ->  DELETE FROM broadband_plans WHERE plan_id = 2001;
+
+[047] OK INSERT
+  Q:  Insert a new patient record with the following details: patient_id 4, first_name 'Jamila', last_name 'Ahmed', date_of_bi
+  GT: INSERT INTO patients (patient_id, first_name, last_name, date_of_birth, ethnicity) VALUES (4, 'Jamila', 'Ahmed', '1980-05-15', 'Hispanic');
+  ->  INSERT INTO patients (patient_id, first_name, last_name, date_of_birth, ethnicity) VALUES (4, 'Jamila', 'Ahmed', '1980-05-15', 'Hispanic');
+
+[048] OK INSERT
+  Q:  Insert a new graduate student with a unique student_id, name, and program.
+  GT: INSERT INTO graduate_students VALUES (4, 'María Rodríguez', 'Computer Science');
+  ->  INSERT INTO graduate_students (student_id, name, program) VALUES (1, 'John Doe', 'Master of Business Administration');
+
+[049] OK INSERT
+  Q:  Add new records of Arctic species distribution to the existing table
+  GT: INSERT INTO SpeciesDistribution (species, year, distribution) VALUES ('Reindeer', 2013, 'Tundra'), ('Reindeer', 2014, 'Forests'), ('Reindeer', 2015, 'Mountains'), ('Reindeer', 2016, 'Coastal Areas');
+  ->  INSERT INTO SpeciesDistribution (species, year, distribution) VALUES ('Arctic Fox', 2017, 'Tundra'), ('Arctic Fox', 2018, 'Mountains'), ('Muskoxen', 2017, 'Forests'), ('Muskoxen', 2018, 'Mountains');
+
+[050] OK DELETE
+  Q:  Delete records from the VisitorDemographics table where Gender is 'Other'.
+  GT: DELETE FROM VisitorDemographics WHERE Gender = 'Other';
+  ->  DELETE FROM VisitorDemographics WHERE Gender = 'Other';
+
+[051] OK DELETE
+  Q:  Delete all records from the 'stations' table where the 'city' is 'San Francisco'
+  GT: DELETE FROM stations WHERE city = 'San Francisco';
+  ->  DELETE FROM stations WHERE city = 'San Francisco';
+
+[052] OK INSERT
+  Q:  Insert a new smart contract 'Governance' with language 'DAML'
+  GT: INSERT INTO smart_contracts (name, language) VALUES ('Governance', 'DAML');
+  ->  INSERT INTO smart_contracts (name, language) VALUES ('Governance', 'DAML');
+
+[053] OK DELETE
+  Q:  Delete all crime incidents in district 1 that were reported before '2019-01-01'
+  GT: DELETE FROM crime_incidents WHERE reported_date < '2019-01-01' AND district_id = 1;
+  ->  DELETE FROM crime_incidents WHERE district_id = 1 AND reported_date < '2019-01-01';
+
+[054] OK INSERT
+  Q:  Insert new records into the models table for AI models, "ModelG" and "ModelH", both Generative models, developed in Braz
+  GT: INSERT INTO models (model_name, model_type, country, safety_score, explainability_score) VALUES ('ModelG', 'Generative', 'Brazil', 88.00, 85.00), ('ModelH', 'Generative', 'Indonesia', 89.00, 86.00);
+  ->  INSERT INTO models (model_id, model_name, model_type, country, safety_score, explainability_score) VALUES (1, 'ModelG', 'Generative', 'Brazil', 88.00, 85.00), (2, 'ModelH', 'Generative', 'Indonesia', 89.00, 86.00);
+
+[055] OK UPDATE
+  Q:  Update the 'organic' column in the 'farmers_market_vendors' table for all records with 'state' 'NY' and set the value to
+  GT: UPDATE farmers_market_vendors SET organic = 1 WHERE state = 'NY';
+  ->  UPDATE farmers_market_vendors SET organic = 1 WHERE state = 'NY';
+
+[056] OK INSERT
+  Q:  Add a new food justice project 'Project E' in 'Texas' with an area of 1.2 hectares to the 'food_justice_projects' table.
+  GT: INSERT INTO food_justice_projects (id, name, location, area_ha) VALUES (4, 'Project E', 'Texas', 1.2);
+  ->  INSERT INTO food_justice_projects (name, location, area_ha) VALUES ('Project E', 'Texas', 1.2);
+
+[057] OK DELETE
+  Q:  Delete all records in the military_innovations table where the innovation_year is after 2030
+  GT: DELETE FROM military_innovations WHERE innovation_year > 2030;
+  ->  DELETE FROM military_innovations WHERE innovation_year > 2030;
+
+[058] OK INSERT
+  Q:  Insert a new supplier from an underrepresented community with a high ethical rating
+  GT: INSERT INTO suppliers (supplier_id, supplier_name, ethical_rating, community_representation) VALUES (104, 'Supplier W', 9, 'Underrepresented');
+  ->  INSERT INTO suppliers (supplier_id, supplier_name, ethical_rating, community_representation) VALUES (4, 'Supplier D', 9, 'Underrepresented');
+
+[059] OK INSERT
+  Q:  Add a new record in the "technology_companies" table for "Jumia" with "Africa" as the region and "E-commerce, fintech" a
+  GT: INSERT INTO technology_companies (name, region, industry) VALUES ('Jumia', 'Africa', 'E-commerce, fintech');
+  ->  INSERT INTO technology_companies (name, region, industry) VALUES ('Jumia', 'Africa', 'E-commerce, fintech');
+
+[060] OK UPDATE
+  Q:  Update the financialWellbeing table to reflect increased financial wellbeing for user 'Ahmed'.
+  GT: UPDATE FinancialWellbeing SET wellbeingScore = 8 WHERE userID = 'Ahmed';
+  ->  UPDATE FinancialWellbeing SET wellbeingScore = 7 WHERE userID = 'Ahmed';
+
+[061] OK INSERT
+  Q:  Insert a new cargo record into the "cargo" table
+  GT: INSERT INTO cargo (id, description) VALUES (55566, 'New Cargo Description');
+  ->  INSERT INTO cargo (id, description) VALUES (3, 'New Cargo');
+
+[062] OK UPDATE
+  Q:  Update the ticket prices for all football matches in Brazil to 150.
+  GT: UPDATE matches SET tickets_price = 150 WHERE sport = 'Football' AND location = 'Brazil';
+  ->  UPDATE matches SET tickets_price = 150 WHERE sport = 'Football' AND location = 'Brazil';
+
+[063] OK UPDATE
+  Q:  Update the 'quantity' of a material in the 'inventory' table to 200 where the 'material' is 'bamboo' and the 'country' o
+  GT: UPDATE inventory SET quantity = 200 WHERE material = 'bamboo' AND EXISTS (SELECT * FROM production WHERE country = 'Indonesia');
+  ->  UPDATE inventory SET quantity = 200 WHERE material = 'bamboo' AND EXISTS (SELECT 1 FROM production WHERE country = 'Indonesia' AND material = 'bamboo');
+
+[064] OK INSERT
+  Q:  Insert a new record into the "geological_survey" table with the following data: 'Emerald Exploration', 'Emerald', '2022-
+  GT: INSERT INTO geological_survey (mine_name, mineral_type, survey_date) VALUES ('Emerald Exploration', 'Emerald', '2022-03-25');
+  ->  INSERT INTO geological_survey (mine_name, mineral_type, survey_date) VALUES ('Emerald Exploration', 'Emerald', '2022-03-25');
+
+[065] OK UPDATE
+  Q:  Update the irrigation settings for all corn fields to 50% of their current value.
+  GT: UPDATE irrigation SET setting = irrigation.setting * 0.5 FROM field WHERE field.type = 'corn';
+  ->  UPDATE irrigation SET setting = setting * 0.5 WHERE field_id IN (SELECT id FROM field WHERE type = 'corn');
+
+[066] OK UPDATE
+  Q:  Update the policyholder name for policy number 12345 to Jane Doe.
+  GT: UPDATE policies SET policyholder_name = 'Jane Doe' WHERE policy_number = 12345;
+  ->  UPDATE policies SET policyholder_name = 'Jane Doe' WHERE policy_number = 12345;
+
+[067] OK INSERT
+  Q:  Insert a new record into the 'veteran_employment' table for a veteran hired as a 'software engineer' on 2022-03-15 with 
+  GT: INSERT INTO veteran_employment (veteran_id, job_title, hire_date, salary) VALUES (1, 'software engineer', '2022-03-15', 80000);
+  ->  INSERT INTO veteran_employment (veteran_id, job_title, hire_date, salary) VALUES (1, 'software engineer', '2022-03-15', 80000);
+
+[068] OK UPDATE
+  Q:  Update the budget for the 'Accessibility Improvements' program to 25000.
+  GT: UPDATE support_programs SET budget = 25000 WHERE program_name = 'Accessibility Improvements';
+  ->  UPDATE support_programs SET budget = 25000 WHERE program_name = 'Accessibility Improvements';
+
+[069] OK INSERT
+  Q:  Insert new data for the satellite "Kuiper" launched by the USA in 2020 with an average distance of 43000 km.
+  GT: INSERT INTO satellites (name, country_of_origin, avg_distance) VALUES ('Kuiper', 'USA', 43000);
+  ->  INSERT INTO satellites (name, country_of_origin, avg_distance) VALUES ('Kuiper', 'USA', 43000);
+
+[070] OK DELETE
+  Q:  Delete records from the "clinicians" table where the clinician's last name is 'Doe'
+  GT: DELETE FROM clinicians WHERE last_name = 'Doe';
+  ->  DELETE FROM clinicians WHERE last_name = 'Doe';
+
+[071] FAIL DELETE
+  Q:  Delete all posts with less than 10 characters
+  GT: DELETE FROM posts WHERE LENGTH(content) < 10;
+  ->  DELETE FROM posts WHERE content LENGTH < 10;
+  ERR: Not valid DML
+
+[072] OK DELETE
+  Q:  Delete all records for donor_id 3.
+  GT: DELETE FROM donors WHERE donor_id = 3;
+  ->  DELETE FROM donors WHERE donor_id = 3;
+
+[073] OK DELETE
+  Q:  Delete all records related to diversity training programs.
+  GT: DELETE FROM TrainingPrograms WHERE ProgramType = 'Diversity';
+  ->  DELETE FROM TrainingPrograms WHERE ProgramName = 'Diversity Training';
+
+[074] OK INSERT
+  Q:  Insert a new record into the "smart_contracts" table with "contract_address" as "0x1234567890123456789012345678901234567
+  GT: INSERT INTO smart_contracts (contract_address, contract_type, country) VALUES ('0x1234567890123456789012345678901234567890', 'ERC20', 'UK');
+  ->  INSERT INTO smart_contracts (contract_address, contract_type, country) VALUES ('0x1234567890123456789012345678901234567890', 'ERC20', 'UK');
+
+[075] OK INSERT
+  Q:  Insert a new deep-sea species 'Yetidracus profundis' into the species table
+  GT: INSERT INTO species (scientific_name, common_name, conservation_status) VALUES ('Yetidracus profundis', 'Yeti Shark', 'Vulnerable');
+  ->  INSERT INTO species (scientific_name, common_name, conservation_status) VALUES ('Yetidracus profundis', 'Yetidracus profundis', 'Least Concern');
+
+[076] OK INSERT
+  Q:  Insert a new record into the labor_practices table with the following information: 'Manufacturer D', 'Cambodia', 'Gender
+  GT: INSERT INTO labor_practices (manufacturer, country, practice, compliant) VALUES ('Manufacturer D', 'Cambodia', 'Gender Equality', 'Yes');
+  ->  INSERT INTO labor_practices (manufacturer, country, practice, compliant) VALUES ('Manufacturer D', 'Cambodia', 'Gender Equality', 'Yes');
+
+[077] OK UPDATE
+  Q:  Update information on an artist from the Baroque movement.
+  GT: UPDATE Artists SET BirthDate = '1577-06-29' WHERE Name = 'Peter Paul Rubens';
+  ->  UPDATE Artists SET Name = 'Peter Paul Rubens (Flemish)', BirthDate = '1577-06-28', DeathDate = '1640-05-30' WHERE ArtistID = 1;
+
+[078] OK UPDATE
+  Q:  Update the price of all organic vegetables in the inventory of GreenMarket to $0.99 per pound.
+  GT: UPDATE Inventory SET price = 0.99 WHERE type = 'organic vegetables';
+  ->  UPDATE Inventory SET price = 0.99 WHERE type = 'organic vegetables';
+
+[079] OK DELETE
+  Q:  Delete records from the "accidents" table where the date is after 2019-01-01
+  GT: DELETE FROM accidents WHERE date > '2019-01-01';
+  ->  DELETE FROM accidents WHERE date > '2019-01-01';
+
+[080] OK DELETE
+  Q:  Delete all climate adaptation records related to 'disaster preparedness' in Europe.
+  GT: DELETE FROM climate_adaptation WHERE project LIKE '%disaster preparedness%' AND location = 'Europe';
+  ->  DELETE FROM climate_adaptation WHERE project = 'disaster preparedness' AND location = 'Europe';
+
+[081] OK UPDATE
+  Q:  Update the 'amount' column in the 'climate_finance' table where the 'funding_source' is 'Private sector' and 'country' i
+  GT: UPDATE climate_finance SET amount = amount * 1.1 WHERE funding_source = 'Private sector' AND country = 'United States';
+  ->  UPDATE climate_finance SET amount = amount + 500000 WHERE funding_source = 'Private sector' AND country = 'United States';
+
+[082] OK UPDATE
+  Q:  Update the fine for permit ID 888 to $9000
+  GT: UPDATE labor_stats SET fine = 9000 WHERE permit_id = 888;
+  ->  UPDATE labor_stats SET fine = 9000 WHERE permit_id = 888;
+
+[083] OK INSERT
+  Q:  Add a new course record with the following details: course_id: 2001, title: Python Programming, completed: 2023-01-20
+  GT: INSERT INTO courses (course_id, title, completed) VALUES (2001, 'Python Programming', '2023-01-20');
+  ->  INSERT INTO courses (course_id, title, completed) VALUES (2001, 'Python Programming', '2023-01-20');
+
+[084] OK UPDATE
+  Q:  Update the number of visitors of the 'Eiffel Tower' in 'France' to 20000
+  GT: UPDATE cultural_sites SET visitors = 20000 WHERE name = 'Eiffel Tower' AND country = 'France';
+  ->  UPDATE cultural_sites SET visitors = 20000 WHERE name = 'Eiffel Tower' AND country = 'France';
+
+[085] OK INSERT
+  Q:  Insert a new record for a student with a learning disability who requires assistive technology accommodations.
+  GT: INSERT INTO StudentAccommodations (StudentID, StudentName, DisabilityType, AccommodationType) VALUES (3, 'Mike Brown', 'Learning Disability', 'Assistive Technology');
+  ->  INSERT INTO StudentAccommodations (StudentID, StudentName, DisabilityType, AccommodationType) VALUES (3, 'Alex Johnson', 'Learning Disability', 'Assistive Technology');
+
+[086] OK INSERT
+  Q:  Add new training program for the IT department
+  GT: INSERT INTO Training (TrainingID, TrainingName, Department) VALUES (1, 'IT Skills Bootcamp', 'IT');
+  ->  INSERT INTO Training (TrainingID, TrainingName, Department) VALUES (3, 'Cybersecurity Awareness', 'IT');
+
+[087] OK DELETE
+  Q:  Delete all flight safety records before 2000
+  GT: DELETE FROM flight_safety WHERE year < 2000;
+  ->  DELETE FROM flight_safety WHERE year < 2000;
+
+[088] OK DELETE
+  Q:  Delete records with a prevalence over 70% in the 'rural_diseases' table
+  GT: DELETE FROM rural_diseases WHERE prevalence > 0.70;
+  ->  DELETE FROM rural_diseases WHERE prevalence > 0.70;
+
+[089] OK DELETE
+  Q:  Delete the mining site with the lowest productivity
+  GT: DELETE FROM mining_sites WHERE productivity = (SELECT MIN(productivity) FROM mining_sites);
+  ->  DELETE FROM mining_sites WHERE site_id = (SELECT site_id FROM mining_sites ORDER BY productivity ASC LIMIT 1);
+
+[090] OK INSERT
+  Q:  Add a new record to the "sustainable_practices" table with an ID of 5, a description of 'Reducing water usage in houseke
+  GT: INSERT INTO sustainable_practices (practice_id, description, category) VALUES (5, 'Reducing water usage in housekeeping', 'Water');
+  ->  INSERT INTO sustainable_practices (practice_id, description, category) VALUES (5, 'Reducing water usage in housekeeping', 'Water');
+
+[091] OK INSERT
+  Q:  Insert a new record into the 'vehicle_maintenance' table for a bus with vehicle_id 'BUS-123'
+  GT: INSERT INTO vehicle_maintenance (vehicle_id, maintenance_date, maintenance_type) VALUES ('BUS-123', '2022-03-01', 'Inspection');
+  ->  INSERT INTO vehicle_maintenance (vehicle_id, maintenance_date, maintenance_type) VALUES ('BUS-123', '2022-03-01', 'Inspection');
+
+[092] OK UPDATE
+  Q:  Update the "hazard_level" for 'Ammonia' in the "chemicals" table
+  GT: UPDATE chemicals SET hazard_level = 3 WHERE chemical_name = 'Ammonia';
+  ->  UPDATE chemicals SET hazard_level = 3 WHERE chemical_name = 'Ammonia';
+
+[093] OK INSERT
+  Q:  Insert new equipment data for a rowing machine purchased in Japan on March 15, 2022.
+  GT: INSERT INTO Equipment (EquipmentID, EquipmentName, PurchaseDate, PurchaseLocation) VALUES (4, 'Rowing Machine', '2022-03-15', 'Japan');
+  ->  INSERT INTO Equipment (EquipmentID, EquipmentName, PurchaseDate, PurchaseLocation) VALUES (4, 'Rowing Machine', '2022-03-15', 'Japan');
+
+[094] OK UPDATE
+  Q:  Update the area of 'Garden A' to 0.7 hectares.
+  GT: UPDATE gardens SET area_ha = 0.7 WHERE name = 'Garden A';
+  ->  UPDATE gardens SET area_ha = 0.7 WHERE name = 'Garden A';
+
+[095] OK INSERT
+  Q:  Add a new pollution control initiative in 'Asia' for 2022.
+  GT: INSERT INTO Initiatives_4 (id, initiative, region, year) VALUES (4, 'Wastewater Treatment', 'Asia', 2022);
+  ->  INSERT INTO Initiatives_4 (id, initiative, region, year) VALUES (4, 'Pollution Control', 'Asia', 2022);
+
+[096] OK UPDATE
+  Q:  Update the membership type of the member with ID 002 to 'diamond' in the memberships table.
+  GT: UPDATE memberships SET member_type = 'diamond' WHERE id = 2;
+  ->  UPDATE memberships SET member_type = 'diamond' WHERE id = 2;
+
+[097] OK DELETE
+  Q:  Delete records in the "solar_plants" table where the capacity is less than 50 MW
+  GT: DELETE FROM solar_plants WHERE capacity < 50;
+  ->  DELETE FROM solar_plants WHERE capacity < 50;
+
+[098] OK UPDATE
+  Q:  Update the arrival age of visitors from Japan to 30.
+  GT: UPDATE tourism_data SET arrival_age = 30 WHERE country = 'Japan';
+  ->  UPDATE tourism_data SET arrival_age = 30 WHERE country = 'Japan';
+
+[099] OK DELETE
+  Q:  Delete the record with the name South America from the 'habitats' table.
+  GT: DELETE FROM habitats WHERE name = 'South America';
+  ->  DELETE FROM habitats WHERE name = 'South America';
+
+[100] OK DELETE
+  Q:  Delete records in the vessel_performance table where the vessel_name is 'Blue Horizon' and the measurement_value is grea
+  GT: DELETE FROM vessel_performance  WHERE vessel_name = 'Blue Horizon'  AND measurement_value > 80;
+  ->  DELETE FROM vessel_performance WHERE vessel_name = 'Blue Horizon' AND measurement_value > 80;
+
+-- SUMMARY: DML Fine-Tuned --
+  Valid DML Syntax : 99.0%
+  Safe Execution   : 99.0%
+  WHERE Safe       : 98.5%
+  Type Breakdown   : {'INSERT': 32, 'UPDATE': 31, 'DELETE': 37, 'UNKNOWN': 0}
