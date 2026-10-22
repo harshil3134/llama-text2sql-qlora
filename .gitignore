@@ -1,11 +1,18 @@
 venv/
 adapters/
+adapters_dml/
 data/*.jsonl
+data_dml/*.jsonl
 __pycache__/
 *.pyc
 .DS_Store
 .env
 .mlx_cache/
-plan
+plan/
 project.md
 RUN.md
+
+# Model weights — never commit large binary files
+*.safetensors
+*.npz
+*.gguf
